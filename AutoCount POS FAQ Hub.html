@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)file:///C:/Users/User/Documents/Codex/2026-06-05/build-a-wiki-landing-page-for/outputs/index.html#faq -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoCount POS FAQ Hub</title>
+  <meta name="description" content="A searchable landing page for AutoCount POS FAQ categories, troubleshoot guides, release notes, and support resources.">
+  <style>
+    :root {
+      --ink: #152033;
+      --muted: #657189;
+      --line: #d9e0ea;
+      --paper: #fbfcfe;
+      --white: #ffffff;
+      --blue: #1f67d2;
+      --teal: #0b8175;
+      --amber: #b86b00;
+      --rose: #b83258;
+      --green: #28744f;
+      --shadow: 0 20px 60px rgba(21, 32, 51, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(251,252,254,.96) 0%, rgba(251,252,254,.90) 48%, rgba(251,252,254,.66) 100%),
+        url("https://static.wikitide.net/autocountwiki/thumb/d/dc/Wiki-POS.PNG/480px-Wiki-POS.PNG") right 8vw center / min(42vw, 460px) auto no-repeat,
+        #f7fafc;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      z-index: 2;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(31, 103, 210, .18);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a, .button {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 14px;
+      background: rgba(255,255,255,.78);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
+    }
+
+    .button.primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(31, 103, 210, .22);
+    }
+
+    .hero-copy {
+      width: min(710px, 100%);
+      padding: 116px 0 70px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(11,129,117,.12);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 620px;
+      color: #38445a;
+      font-size: 19px;
+    }
+
+    .search-panel {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      max-width: 740px;
+    }
+
+    .search {
+      min-height: 56px;
+      width: 100%;
+      border: 1px solid #bcc8d8;
+      border-radius: 8px;
+      background: rgba(255,255,255,.92);
+      padding: 0 18px;
+      color: var(--ink);
+      font: inherit;
+      font-size: 16px;
+      box-shadow: 0 14px 36px rgba(21, 32, 51, .10);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(31, 103, 210, .14), 0 14px 36px rgba(21, 32, 51, .10);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 760px;
+    }
+
+    .stat {
+      border-left: 3px solid var(--blue);
+      background: rgba(255,255,255,.70);
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    .stat:nth-child(2) { border-color: var(--teal); }
+    .stat:nth-child(3) { border-color: var(--amber); }
+    .stat:nth-child(4) { border-color: var(--rose); }
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .search-results {
+      display: none;
+      margin-top: 18px;
+      max-width: 900px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .search-results.open {
+      display: block;
+    }
+
+    .search-results-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      background: #f6f9fd;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .search-results-head strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .search-results-head span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .clear-search {
+      appearance: none;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 0 12px;
+      white-space: nowrap;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 12px;
+      list-style: none;
+      max-height: 330px;
+      overflow: auto;
+    }
+
+    .result-list a {
+      display: grid;
+      gap: 5px;
+      padding: 11px 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .result-list a:hover {
+      background: #f7faff;
+      border-color: #d9e6fb;
+    }
+
+    .result-title {
+      color: #1455c8;
+      font-weight: 800;
+    }
+
+    .result-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .result-empty {
+      padding: 20px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    main {
+      padding: 48px 0 70px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 14px 0;
+      background: rgba(251,252,254,.92);
+      border-bottom: 1px solid rgba(217,224,234,.75);
+      backdrop-filter: blur(14px);
+    }
+
+    .chips {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .chip {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .chip.active {
+      color: #fff;
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin: 34px 0 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      display: grid;
+      gap: 14px;
+      min-height: 188px;
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(21, 32, 51, .06);
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .card-button {
+      width: 100%;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(31, 103, 210, .55);
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: #eef4ff;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .badge.troubleshoot { background: #fff1f4; color: var(--rose); }
+    .badge.release { background: #fff6df; color: var(--amber); }
+    .badge.reference { background: #eaf8f4; color: var(--green); }
+
+    .arrow {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      color: var(--blue);
+      flex: 0 0 auto;
+      font-weight: 900;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .card-title {
+      display: block;
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      font-weight: 800;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card.source-only {
+      border-style: dashed;
+      background: #fffdf8;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .card.source-only .arrow {
+      color: var(--amber);
+      background: #fff7e5;
+    }
+
+    .card.source-only:hover {
+      transform: none;
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .card-desc {
+      display: block;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .drilldown {
+      display: none;
+      grid-column: 1 / -1;
+      margin: 4px 0 20px;
+      background: var(--white);
+      border: 1px solid #bfd0e8;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .drilldown.open {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+
+    .drilldown-head {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #f6f9fd;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .drilldown-head h3 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .drilldown-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .close-drilldown {
+      appearance: none;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+
+    .drilldown-tabs {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 16px;
+      background: #fbfcfe;
+      border-right: 1px solid var(--line);
+    }
+
+    .drilldown-tab {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 12px;
+      text-align: left;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .drilldown-tab span:last-child {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .drilldown-tab.active {
+      background: #eef4ff;
+      border-color: #cfe0fa;
+      color: var(--blue);
+    }
+
+    .drilldown-list {
+      padding: 18px 20px 22px;
+      max-height: 620px;
+      overflow: auto;
+    }
+
+    .drilldown-list h4 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .article-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: faq;
+    }
+
+    .article-list li {
+      counter-increment: faq;
+    }
+
+    .article-list a {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      align-items: start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: #1455c8;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .article-list a::before {
+      content: counter(faq) ".";
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .article-list a:hover {
+      background: #f7faff;
+      border-color: #d9e6fb;
+    }
+
+    .empty {
+      display: none;
+      margin: 28px 0 0;
+      padding: 26px;
+      background: var(--white);
+      border: 1px dashed #aeb9c9;
+      border-radius: 8px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .source {
+      margin-top: 46px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .source a {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(251,252,254,.96), rgba(251,252,254,.86)),
+          url("https://static.wikitide.net/autocountwiki/thumb/d/dc/Wiki-POS.PNG/320px-Wiki-POS.PNG") right 20px bottom 30px / 210px auto no-repeat,
+          #f7fafc;
+      }
+
+      .topbar {
+        position: relative;
+        height: auto;
+        padding-top: 18px;
+      }
+
+      .hero-copy { padding: 56px 0 70px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .drilldown.open { grid-template-columns: 1fr; }
+      .drilldown-tabs { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .nav { width: 100%; }
+      .nav a { flex: 1; }
+      .search-panel { grid-template-columns: 1fr; }
+      .button.primary { min-height: 52px; }
+      .grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat strong { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap topbar">
+      <a class="brand" href="https://wiki.autocountsoft.com/wiki/Category:Users:POS" target="_blank" rel="noreferrer">
+        <img src="./AutoCount POS FAQ Hub_files/Logo.jpg" alt="AutoCount logo">
+        <span>AutoCount POS FAQ</span>
+      </a>
+      <nav class="nav" aria-label="Quick navigation">
+        <a href="file:///C:/Users/User/Documents/Codex/2026-06-05/build-a-wiki-landing-page-for/outputs/index.html#faq">FAQ Library</a>
+        <a href="file:///C:/Users/User/Documents/Codex/2026-06-05/build-a-wiki-landing-page-for/outputs/index.html#release">Release Notes</a>
+        <a href="file:///C:/Users/User/Documents/Codex/2026-06-05/build-a-wiki-landing-page-for/outputs/index.html#faq">All Topics</a>
+      </nav>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">AutoCount Resource Center</div>
+        <h1>AutoCount POS FAQ Hub</h1>
+        <p class="lead">Find the right POS, FnB, Optical POS, QR Ordering, PalmPOS, and OneSales support category faster, with direct links back to the official wiki.</p>
+        <div class="search-panel" role="search">
+          <input class="search" id="searchInput" type="search" placeholder="Search application, troubleshoot, release note, QR ordering..." autocomplete="off">
+          <a class="button primary" href="file:///C:/Users/User/Documents/Codex/2026-06-05/build-a-wiki-landing-page-for/outputs/index.html#faq">Browse FAQ</a>
+        </div>
+        <div class="stats" aria-label="FAQ library summary">
+          <div class="stat"><strong>14</strong><span>POS 5.x FAQ links</span></div>
+          <div class="stat"><strong>2</strong><span>POS 3.1 entries</span></div>
+          <div class="stat"><strong>11</strong><span>Release note groups</span></div>
+          <div class="stat"><strong>6</strong><span>Reference resources</span></div>
+        </div>
+        <div class="search-results" id="searchResults" aria-live="polite"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="wrap chips" aria-label="Filter FAQ links">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="application">Application</button>
+      <button class="chip" data-filter="troubleshoot">Troubleshoot</button>
+      <button class="chip" data-filter="release">Release Notes</button>
+      <button class="chip" data-filter="reference">Help &amp; References</button>
+    </div>
+  </div>
+
+  <main class="wrap" id="faq">
+    <section class="faq-section" data-section="faq">
+      <div class="section-head">
+        <div>
+          <h2>AutoCount POS 5.x and FnB FAQ</h2>
+          <p>Current FAQ categories for POS 5.0/5.1, FnB, QR Ordering, Optical POS, PalmPOS, and OneSales.</p>
+        </div>
+        <div class="count">14 links</div>
+      </div>
+      <div class="grid">
+        <div class="card card-button" data-kind="application" data-drilldown-index="0" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">POS 5.0 / FnB 5.0 Shared FAQ</span><span class="card-desc">Shared application guidance for POS and FnB users.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="1" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">POS 5.0 / FnB 5.0 Shared Troubleshoot</span><span class="card-desc">Common shared issue categories and fixes.</span></div>
+        <div class="card card-button" data-kind="application" data-drilldown-index="2" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">FnB 5.0 FAQ</span><span class="card-desc">Application questions for restaurant and FnB workflows.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="3" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">FnB 5.0 Troubleshoot</span><span class="card-desc">Issue-focused help for FnB operations.</span></div>
+        <div class="card card-button" data-kind="application" data-drilldown-index="4" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">POS 5.0 FAQ</span><span class="card-desc">Application help for core AutoCount POS 5.0.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="5" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">POS 5.0 Troubleshoot</span><span class="card-desc">Troubleshooting paths for POS 5.0 issues.</span></div>
+        <div class="card card-button" data-kind="application" data-drilldown-index="6" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">OneSales POS FAQ</span><span class="card-desc">Application topics for AutoCount OneSales POS.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="7" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">OneSales POS Troubleshoot</span><span class="card-desc">Issue categories for OneSales POS users.</span></div>
+        <div class="card card-button" data-kind="application" data-drilldown-index="8" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">Optical POS 2.1 FAQ</span><span class="card-desc">Application support for optical retail workflows.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="9" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">Optical POS 2.1 Troubleshoot</span><span class="card-desc">Issue-focused optical POS categories.</span></div>
+        <div class="card card-button" data-kind="application" data-drilldown-index="10" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">QR Ordering FAQ</span><span class="card-desc">Application guidance for QR ordering setup and usage.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="11" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">QR Ordering Troubleshoot</span><span class="card-desc">Problem-solving categories for QR ordering.</span></div>
+        <div class="card card-button" data-kind="application" data-drilldown-index="12" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">PalmPOS FAQ</span><span class="card-desc">Application questions for PalmPOS workflows.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="13" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">PalmPOS Troubleshoot</span><span class="card-desc">Troubleshooting categories for PalmPOS.</span></div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-head">
+        <div>
+          <h2>AutoCount POS 3.1</h2>
+          <p>Legacy POS 3.1 application and troubleshooting categories.</p>
+        </div>
+        <div class="count">2 links</div>
+      </div>
+      <div class="grid">
+        <div class="card card-button" data-kind="application" data-drilldown-index="14" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge">Application</span><span class="arrow">+</span></span><span class="card-title">POS 3.1 FAQ</span><span class="card-desc">Application support for AutoCount POS 3.1.</span></div>
+        <div class="card card-button" data-kind="troubleshoot" data-drilldown-index="15" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge troubleshoot">Troubleshoot</span><span class="arrow">+</span></span><span class="card-title">POS 3.1 Troubleshoot</span><span class="card-desc">Issue categories for older POS deployments.</span></div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="release">
+      <div class="section-head">
+        <div>
+          <h2>Release Notes</h2>
+          <p>Version history and product update categories for POS, FnB, QR Ordering, eWaiter, and Optical POS.</p>
+        </div>
+        <div class="count">11 links</div>
+      </div>
+      <div class="grid">
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="16" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">POS 3.1 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="17" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">POS 5.0 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="18" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">FnB 5.0 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="19" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">POS 5.1 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="20" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">FnB 5.1 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="21" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">POS 5.2 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="22" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">FnB 5.2 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="23" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">FnB eWaiter Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="24" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">FnB QR Ordering Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="25" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">Optical POS 2.1 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="release" data-drilldown-index="26" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge release">Release</span><span class="arrow">i</span></span><span class="card-title">Optical POS 2.2 Release Note</span><span class="card-desc">No article links published yet.</span></div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="section-head">
+        <div>
+          <h2>Help Files and References</h2>
+          <p>Documentation, integration lists, e-wallet references, hardware compatibility, and API category links.</p>
+        </div>
+        <div class="count">6 links</div>
+      </div>
+      <div class="grid">
+        <div class="card card-button" data-kind="reference" data-drilldown-index="27" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge reference">Reference</span><span class="arrow">+</span></span><span class="card-title">FnB Help File</span><span class="card-desc">Official help file category for AutoCount FnB.</span></div>
+        <div class="card card-button" data-kind="reference" data-drilldown-index="28" role="button" tabindex="0" aria-expanded="false"><span class="card-top"><span class="badge reference">Reference</span><span class="arrow">+</span></span><span class="card-title">POS 5.0 Help File</span><span class="card-desc">Official help file category for AutoCount POS 5.0.</span></div>
+        <div class="card card-button source-only" data-kind="reference" data-drilldown-index="29" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge reference">Reference</span><span class="arrow">i</span></span><span class="card-title">Mall Integration Lists</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="reference" data-drilldown-index="30" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge reference">Reference</span><span class="arrow">i</span></span><span class="card-title">POS E-Wallet</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="reference" data-drilldown-index="31" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge reference">Reference</span><span class="arrow">i</span></span><span class="card-title">Hardware Compatibility Lists</span><span class="card-desc">No article links published yet.</span></div>
+        <div class="card card-button source-only" data-kind="reference" data-drilldown-index="32" role="button" tabindex="0" aria-expanded="false" aria-disabled="true"><span class="card-top"><span class="badge reference">API</span><span class="arrow">i</span></span><span class="card-title">AutoCount POS API</span><span class="card-desc">No article links published yet.</span></div>
+      </div>
+    </section>
+
+    <div class="drilldown" id="activeDrilldownPanel" aria-live="polite"></div>
+
+    <div class="empty" id="emptyState">No matching FAQ links found. Try a shorter term such as "QR", "release", "troubleshoot", or "FnB".</div>
+
+    <p class="source">Content links are organized from the official <a href="https://wiki.autocountsoft.com/wiki/Category:Users:POS" target="_blank" rel="noreferrer">AutoCount POS wiki category</a>, last shown on the source page as edited on 17 April 2026.</p>
+  </main>
+
+  <script type="application/json" id="drilldownData">
+[{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0/FnB_5.0_Shared_FAQ_Application","title":"POS 5.0 / FnB 5.0 Shared FAQ","desc":"Shared application guidance for POS and FnB users.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0/FnB_5.0_Shared_FAQ_Application","groups":[{"title":"Featured","links":[{"title":"How to setup POS E-Invoice","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_setup_POS_E-Invoice"}]},{"title":"Data Entry","links":[{"title":"How to do return item with serial number in Pos system","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_do_return_item_with_serial_number_in_Pos_system"},{"title":"Allow to view Up To Date Cost in POS 5.0/F&B","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Allow_to_view_Up_To_Date_Cost_in_POS_5.0/F%26B"},{"title":"Can I do Refund for Credit Card, E-Wallet, Debit Card or Credit Sales?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Can_I_do_Refund_for_Credit_Card,_E-Wallet,_Debit_Card_or_Credit_Sales%3F"},{"title":"Reenter previous past day transaction","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Reenter_previous_past_day_transaction"},{"title":"Return vs Trade In?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Return_vs_Trade_In%3F"},{"title":"Void & Refund Access Right","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Void_%26_Refund_Access_Right"},{"title":"How to do item return and refund?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_do_item_return_and_refund%3F"},{"title":"How to update customer details of a saved receipt?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_update_customer_details_of_a_saved_receipt%3F"},{"title":"How to edit promoter which was wrongly assigned?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_edit_promoter_which_was_wrongly_assigned%3F"},{"title":"POS search options how to check it permanently?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_search_options_how_to_check_it_permanently%3F"},{"title":"How to make transaction with an item without item code","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_make_transaction_with_an_item_without_item_code"},{"title":"How to print Full Tax Invoice from POS System","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_print_Full_Tax_Invoice_from_POS_System"},{"title":"Difference between checkout for terminal and checkout for cashier","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Difference_between_checkout_for_terminal_and_checkout_for_cashier"},{"title":"How to redeem bonus point from POS5 and FNB","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_redeem_bonus_point_from_POS5_and_FNB"},{"title":"What is New AR Payment in POS5 and FNB","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_What_is_New_AR_Payment_in_POS5_and_FNB"},{"title":"How to create new member at frontend","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_create_new_member_at_frontend"},{"title":"How to Enter Customer Information when creating transaction","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_Enter_Customer_Information_when_creating_transaction"},{"title":"How to enable preview receipt function at Frontend payment screen?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_enable_preview_receipt_function_at_Frontend_payment_screen%3F"},{"title":"How to reassign promoter for transaction that was completed?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_reassign_promoter_for_transaction_that_was_completed%3F"},{"title":"How to merge same stock item in single line instead of two lines at POS order screen?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_merge_same_stock_item_in_single_line_instead_of_two_lines_at_POS_order_screen%3F"},{"title":"How to Batch delete POS transactions in Backend & Frontend?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_Batch_delete_POS_transactions_in_Backend_%26_Frontend%3F"},{"title":"How to create AR Payment?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_create_AR_Payment%3F"},{"title":"How to create Credit Sales transaction?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_create_Credit_Sales_transaction%3F"},{"title":"How to make payment in others currency?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_make_payment_in_others_currency%3F"},{"title":"How to re submit invalid eInvoice transaction to LHDN again?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_re_submit_invalid_eInvoice_transaction_to_LHDN_again%3F"}]},{"title":"Sync","links":[{"title":"How to use Service Bus Sync","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_use_Service_Bus_Sync"},{"title":"How to perform trade in at Frontend","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_perform_trade_in_at_Frontend"},{"title":"How to perform client sync at POS Backend instead of do sync at Frontend","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_perform_client_sync_at_POS_Backend_instead_of_do_sync_at_Frontend"},{"title":"How to Re-sync Batch Bill to HQ Server Backend again?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Re-sync_Batch_Bill_to_HQ_Server_Backend_again%3F"},{"title":"How to Re-sync Bill to HQ Server Backend?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Re-sync_Bill_to_HQ_Server_Backend%3F"},{"title":"How to edit the volume of auto synchronization transaction?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_edit_the_volume_of_auto_synchronization_transaction%3F"},{"title":"How to change auto synchronization time interval?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_change_auto_synchronization_time_interval%3F"},{"title":"Speed Sync vs Full Sync?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Speed_Sync_vs_Full_Sync%3F"},{"title":"How to set the value limit of sync item by batch?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_set_the_value_limit_of_sync_item_by_batch%3F"},{"title":"How to add a new location in sync profile that was created in pos backend?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_add_a_new_location_in_sync_profile_that_was_created_in_pos_backend%3F"},{"title":"After restored FE DB, how to sync with HQ?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_After_restored_FE_DB,_how_to_sync_with_HQ%3F"},{"title":"How to remove outlet database from POS server monitor","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_remove_outlet_database_from_POS_server_monitor"},{"title":"How to resync one specific pos transaction by using SQL query command?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_resync_one_specific_pos_transaction_by_using_SQL_query_command%3F"}]},{"title":"POS Posting","links":[{"title":"POS Sales Account Posting Priority","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_POS_Sales_Account_Posting_Priority"},{"title":"POS Credit Sales Account Posting Level Priority","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_POS_Credit_Sales_Account_Posting_Level_Priority"},{"title":"How to repost POS transaction","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_repost_POS_transaction"},{"title":"How to Change Payment Posting Account?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Change_Payment_Posting_Account%3F"},{"title":"How to do batch repost transaction?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_do_batch_repost_transaction%3F"},{"title":"How to set different terminals posting to different Account No.?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_different_terminals_posting_to_different_Account_No.%3F"},{"title":"How to separate payment numbers when perform pos posting?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_separate_payment_numbers_when_perform_pos_posting%3F"}]},{"title":"Report Design","links":[{"title":"How to Design printing label of 1 Row 3 Column","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_Design_printing_label_of_1_Row_3_Column"},{"title":"How to hide 0.00 when the value is 0","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_hide_0.00_when_the_value_is_0"},{"title":"Add Note or Remark at receipt bottom","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_Add_Note_or_Remark_at_receipt_bottom"},{"title":"How to Change Barcode Label from MYR to RM?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Change_Barcode_Label_from_MYR_to_RM%3F"},{"title":"How to hide Unit Price on receipt when it is 0.00?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_hide_Unit_Price_on_receipt_when_it_is_0.00%3F"},{"title":"How to change POS Receipt numbering format","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_change_POS_Receipt_numbering_format"},{"title":"Add promoter name for specify item on receipt","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Add_promoter_name_for_specify_item_on_receipt"},{"title":"Show Barcode in Stock Balance Report","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Show_Barcode_in_Stock_Balance_Report"},{"title":"Show Voucher No at POS receipt","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Show_Voucher_No_at_POS_receipt"},{"title":"How to add e-Invoice QR code in existing report design?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_add_e-Invoice_QR_code_in_existing_report_design%3F"},{"title":"How to add Void / Cancelled in report design?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_add_Void_/_Cancelled_in_report_design%3F"}]},{"title":"Maintenance","links":[{"title":"How to set Topup credit in AutoCount?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_set_Topup_credit_in_AutoCount%3F"},{"title":"Send close counter report by email","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_Send_close_counter_report_by_email"},{"title":"Set Email notification for Schedule Backup","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_Set_Email_notification_for_Schedule_Backup"},{"title":"How to maintain preset remark for Cash in & Cash Out","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_maintain_preset_remark_for_Cash_in_%26_Cash_Out"},{"title":"How to set different Company Profile for Frontend","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_set_different_Company_Profile_for_Frontend"},{"title":"How to turn off Find Promoter whenever I login or completed a transaction","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_turn_off_Find_Promoter_whenever_I_login_or_completed_a_transaction"},{"title":"How to preset remarks for user to select","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_preset_remarks_for_user_to_select"},{"title":"Change Backend User Interface Language","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Change_Backend_User_Interface_Language"},{"title":"How to customize POS function button?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_customize_POS_function_button%3F"},{"title":"How to change quantity decimal for POS?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_change_quantity_decimal_for_POS%3F"},{"title":"How to set different menus for different outlets?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_different_menus_for_different_outlets%3F"},{"title":"Can I skip showing print dialog?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Can_I_skip_showing_print_dialog%3F"},{"title":"How to assign Project No. for POS?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_assign_Project_No._for_POS%3F"},{"title":"How to set print 2 copies receipt after made payment?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_print_2_copies_receipt_after_made_payment%3F"},{"title":"How to set different Option types for different Terminals?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_different_Option_types_for_different_Terminals%3F"},{"title":"Voucher Type Maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Voucher_Type_Maintenance"},{"title":"Change Voucher,Debit & Ewallet ID","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Change_Voucher,Debit_%26_Ewallet_ID"},{"title":"How to set default tax for open item?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_default_tax_for_open_item%3F"},{"title":"How to set default to use Description 2 in POS?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_default_to_use_Description_2_in_POS%3F"},{"title":"How to Change Frontend language?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Change_Frontend_language%3F"},{"title":"How to enable Goods In Transit (GIT)?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_enable_Goods_In_Transit_(GIT)%3F"},{"title":"How to setup E-wallet Maintenance?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_setup_E-wallet_Maintenance%3F"},{"title":"Able to register fingerprint at front-end","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Able_to_register_fingerprint_at_front-end"},{"title":"How to turn off auto update version function?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_turn_off_auto_update_version_function%3F"},{"title":"How to Enable POS Credit Control?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Enable_POS_Credit_Control%3F"},{"title":"POS How to delete unused POS Terminal?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_POS_How_to_delete_unused_POS_Terminal%3F"},{"title":"How to Trigger Auto UOM Conversion?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Trigger_Auto_UOM_Conversion%3F"},{"title":"How to set maximum discount percentage rate by user group level","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_maximum_discount_percentage_rate_by_user_group_level"},{"title":"How to enable Debtor in frontend?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_enable_Debtor_in_frontend%3F"},{"title":"How to enable Cash Drawer Notification","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_enable_Cash_Drawer_Notification"},{"title":"How to setup E-wallet type that AutoCount does not integrate with?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_setup_E-wallet_type_that_AutoCount_does_not_integrate_with%3F"},{"title":"How to turn off customer information when making payment","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_turn_off_customer_information_when_making_payment"},{"title":"How to change POS 5 Terminal Location?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_change_POS_5_Terminal_Location%3F"},{"title":"How to make POS system exclusive of TAX","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_make_POS_system_exclusive_of_TAX"},{"title":"Can i fixed a certain points for item redemption at frontend?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Can_i_fixed_a_certain_points_for_item_redemption_at_frontend%3F"},{"title":"How to set \"Promoter selection\u201d to be auto-prompted after scanning an item","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_set_promoter_selection_to_be_auto-prompted_after_scanning_an_item"},{"title":"How to Enable Scale Barcode in POS5 or FnB","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_Enable_Scale_Barcode_in_POS5_or_FnB"},{"title":"How to check AutoCount POS5 & FNB Version","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_check_AutoCount_POS5_%26_FNB_Version"},{"title":"How to setup HQ database connection","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_setup_HQ_database_connection"},{"title":"How to clear POS Transaction","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_clear_POS_Transaction"},{"title":"How to Set Access right for Trade in and Return","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_Set_Access_right_for_Trade_in_and_Return"},{"title":"Exclude Item code sync for Terminal","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Exclude_Item_code_sync_for_Terminal"},{"title":"Export Data to Outlet POS / F&B","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Export_Data_to_Outlet_POS_/_F%26B"},{"title":"How to set 18 digit weighing scale barcode","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_18_digit_weighing_scale_barcode"},{"title":"How to set default Promoter ID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_default_Promoter_ID"},{"title":"Change Member No Format in POS5 BACKEND","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Change_Member_No_Format_in_POS5_BACKEND"},{"title":"Enable MyKad Reader","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Enable_MyKad_Reader"},{"title":"How to add UDF","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_add_UDF"},{"title":"How to change terminal outlet location at Terminal Maintenance if the outlet field is disabled?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_change_terminal_outlet_location_at_Terminal_Maintenance_if_the_outlet_field_is_disabled%3F"},{"title":"How to set UOM Rate less than 1 (0.1,0.2,\u2026)?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_UOM_Rate_less_than_1_(0.1,0.2,%E2%80%A6)%3F"},{"title":"Can I add additional picture for member","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Can_I_add_additional_picture_for_member"},{"title":"How to make Fast Selection Menu with multiple levels?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_make_Fast_Selection_Menu_with_multiple_levels%3F"},{"title":"How to configure a promotion menu that only appears at certain time period like (Happy Hour)?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_configure_a_promotion_menu_that_only_appears_at_certain_time_period_like_(Happy_Hour)%3F"},{"title":"How to configure multiple images looping in second customer display?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_configure_multiple_images_looping_in_second_customer_display%3F"},{"title":"How to restrict Print X Report","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_restrict_Print_X_Report"},{"title":"How to enable Backorder Control?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_enable_Backorder_Control%3F"},{"title":"Hide fast select menu price from terminal","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Hide_fast_select_menu_price_from_terminal"},{"title":"How to enable Malaysia Tax?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_enable_Malaysia_Tax%3F"},{"title":"How to enforce Password to open cash drawer even the user has access right?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_enforce_Password_to_open_cash_drawer_even_the_user_has_access_right%3F"},{"title":"Meaning of the color indicator on POS Server Monitor Status?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Meaning_of_the_color_indicator_on_POS_Server_Monitor_Status%3F"},{"title":"How to filter promoter by outlet","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_filter_promoter_by_outlet"},{"title":"Rounding method logic in AutoCount system","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Rounding_method_logic_in_AutoCount_system"}]},{"title":"Promotion/Price Plan","links":[{"title":"How to identify promotion priority control?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_identify_promotion_priority_control%3F"},{"title":"How to create promotion only for member/debtor?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_create_promotion_only_for_member/debtor%3F"},{"title":"Different between Birthday and Birthday Month in promotion maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Different_between_Birthday_and_Birthday_Month_in_promotion_maintenance"},{"title":"How to set a promotion of a free gift when total purchase reached RM500?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_a_promotion_of_a_free_gift_when_total_purchase_reached_RM500%3F"},{"title":"Price Level Priority","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_Price_Level_Priority"},{"title":"How to enable last selling price?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_enable_last_selling_price%3F"},{"title":"How to set Multi Prices for Different Outlets & Members Level?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_set_Multi_Prices_for_Different_Outlets_%26_Members_Level%3F"},{"title":"How to set different item selling price for only specific member without change price on stock item maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_set_different_item_selling_price_for_only_specific_member_without_change_price_on_stock_item_maintenance"},{"title":"How to set price for 2 different locations using multi price?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_set_price_for_2_different_locations_using_multi_price%3F"},{"title":"How to change default multi pricing for POS?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_change_default_multi_pricing_for_POS%3F"},{"title":"How to batch delete Price Plan Maintenance record?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_batch_delete_Price_Plan_Maintenance_record%3F"}]},{"title":"Others","links":[{"title":"How to attach Database file from Accounting or POS Backend","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_attach_Database_file_from_Accounting_or_POS_Backend"},{"title":"How to set windows firewall exception for sql port?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_set_windows_firewall_exception_for_sql_port%3F"},{"title":"How to configure dynamic and static sql port number?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_configure_dynamic_and_static_sql_port_number%3F"},{"title":"How to convert an open item to a fixed itemcode item?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_:_How_to_convert_an_open_item_to_a_fixed_itemcode_item%3F"},{"title":"What is a Price Checker?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_What_is_a_Price_Checker%3F"},{"title":"How to Migrate POS 3 Transactions to POS 5/F&B Database?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Migrate_POS_3_Transactions_to_POS_5/F%26B_Database%3F"},{"title":"How to insert POS&FNB FE license","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_insert_POS%26FNB_FE_license"},{"title":"How to insert POS5 Backend License","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_insert_POS5_Backend_License"},{"title":"How to Install POS Integration?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_Install_POS_Integration%3F"},{"title":"How is margin percentage calculated at POS Profit Margin Report","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_is_margin_percentage_calculated_at_POS_Profit_Margin_Report"},{"title":"How to install Mall Integration Plugin?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_install_Mall_Integration_Plugin%3F"},{"title":"How to import voucher no to Pos Backend?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_import_voucher_no_to_Pos_Backend%3F"},{"title":"POS How to export weighing scale data?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_POS_How_to_export_weighing_scale_data%3F"},{"title":"POS How to check Microsoft SQL instance port number?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_POS_How_to_check_Microsoft_SQL_instance_port_number%3F"},{"title":"How to create new database for POS/F&B system with existing database attached","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_create_new_database_for_POS/F%26B_system_with_existing_database_attached"},{"title":"How to reset stock balance to 0?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_How_to_reset_stock_balance_to_0%3F"},{"title":"POS A vs POS B vs POS Branch?","url":"https://wiki.autocountsoft.com/wiki/Pos3/Pos5/FNB:_POS_A_vs_POS_B_vs_POS_Branch%3F"},{"title":"How to do Backup at Front End?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_do_Backup_at_Front_End%3F"},{"title":"How to restore Frontend database on existing PC with POS","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_restore_Frontend_database_on_existing_PC_with_POS"},{"title":"How to configure POS B attach POS A database","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_configure_POS_B_attach_POS_A_database"},{"title":"What is Clerk Menu? How to login?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_What_is_Clerk_Menu%3F_How_to_login%3F"},{"title":"How to print barcode from a list of items?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/:_How_to_print_barcode_from_a_list_of_items%3F"},{"title":"How to configure pole display for frontend","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_configure_pole_display_for_frontend"},{"title":"How to view stock balance from outlet to outlet","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_view_stock_balance_from_outlet_to_outlet"},{"title":"Excel Import Templates","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Excel_Import_Templates"},{"title":"How to reset sub user password for eDashboard?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_reset_sub_user_password_for_eDashboard%3F"},{"title":"Revenue Credit Card Terminal unable to be detected when perform credit card payment?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Revenue_Credit_Card_Terminal_unable_to_be_detected_when_perform_credit_card_payment%3F"},{"title":"How to set Window task scheduler if system default doesn\u2019t start my sync services","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_Window_task_scheduler_if_system_default_doesn%E2%80%99t_start_my_sync_services"},{"title":"Login Frontend prompt error Class not Registered","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_Frontend_prompt_error_Class_not_Registered"},{"title":"How to setup android price checker","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_setup_android_price_checker"},{"title":"How to resubmit Mall / Pos Integration sale amount","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_resubmit_Mall_/_Pos_Integration_sale_amount"},{"title":"Play youtube video in terminal","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Play_youtube_video_in_terminal"},{"title":"How to adjust the value of tasks to process in Sync Profile?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_adjust_the_value_of_tasks_to_process_in_Sync_Profile%3F"},{"title":"How to set auto restart services when detected sync monitor service is stopped?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_auto_restart_services_when_detected_sync_monitor_service_is_stopped%3F"},{"title":"How to add & remove Item in Item Package","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_add_%26_remove_Item_in_Item_Package"},{"title":"How to add unit price column at second customer display?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_add_unit_price_column_at_second_customer_display%3F"},{"title":"How to set alternative windows IP address?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_alternative_windows_IP_address%3F"},{"title":"How to link Credit Card Terminal (A920) to POS","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_link_Credit_Card_Terminal_(A920)_to_POS"},{"title":"How to Turn on 2nd Display (LCD Customer Screen)","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_Turn_on_2nd_Display_(LCD_Customer_Screen)"},{"title":"Receive sync error msg through Email Address","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Receive_sync_error_msg_through_Email_Address"},{"title":"How to check my Dongle/USB key number","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_check_my_Dongle/USB_key_number"},{"title":"How to re-assign a missing pos transaction custom payment type?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_re-assign_a_missing_pos_transaction_custom_payment_type%3F"},{"title":"How to Batch Print POS Transaction?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_Batch_Print_POS_Transaction%3F"},{"title":"Migrate Hold Bill to POS5","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Migrate_Hold_Bill_to_POS5"},{"title":"How to calculate Inclusive Tax & Service Charges?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_calculate_Inclusive_Tax_%26_Service_Charges%3F"},{"title":"How to Re-sync Batch Cash In and Cash Out Records?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_Re-sync_Batch_Cash_In_and_Cash_Out_Records%3F"},{"title":"How to set default costing method for new Item in 2.1/5.1?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_set_default_costing_method_for_new_Item_in_2.1/5.1%3F"},{"title":"How to update/insert POS & FnB FE USB Key license?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_update/insert_POS_%26_FnB_FE_USB_Key_license%3F"},{"title":"How to remove EDashBoard deleted record?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_How_to_remove_EDashBoard_deleted_record%3F"},{"title":"How to submit past transaction for Consolidate E-Invoice?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_submit_past_transaction_for_Consolidate_E-Invoice%3F"},{"title":"Clear Pending Email to Customer","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Clear_Pending_Email_to_Customer"},{"title":"How to set custom report for E-Invoice validated receipt","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_set_custom_report_for_E-Invoice_validated_receipt"}]},{"title":"Philippines","links":[{"title":"Understanding X and Z Readings in Your POS System","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB_(PH):_Understanding_X_and_Z_Readings_in_Your_POS_System"}]}],"count":183}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0/FnB_5.0_Shared_FAQ_Troubleshoot","title":"POS 5.0 / FnB 5.0 Shared Troubleshoot","desc":"Common shared issue categories and fixes.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0/FnB_5.0_Shared_FAQ_Troubleshoot","groups":[{"title":"Data Entry","links":[{"title":"No Show Unit Price Column at Purchase","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_No_Show_Unit_Price_Column_at_Purchase"},{"title":"Outlet stock item list is not same","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Outlet_stock_item_list_is_not_same"},{"title":"When I scan item the system goes directly to payment","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_I_scan_item_the_system_goes_directly_to_payment"},{"title":"Credit Sales Payment Error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Credit_Sales_Payment_Error"},{"title":"Error with duplicated Barcode or Alternate Code","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_with_duplicated_Barcode_or_Alternate_Code"},{"title":"Frontend Backorder Control Not Functioning","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Frontend_Backorder_Control_Not_Functioning"},{"title":"Decimal is not showing 2 when i have set it 2","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Decimal_is_not_showing_2_when_i_have_set_it_2"},{"title":"Check Stock Level Show Nothing","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Check_Stock_Level_Show_Nothing"},{"title":"Return quantity more than sell quantity","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Return_quantity_more_than_sell_quantity"},{"title":"Close Counter Report Amount not same with other report","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Close_Counter_Report_Amount_not_same_with_other_report"},{"title":"Microsoft .NET Framework error after made payment","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Microsoft_.NET_Framework_error_after_made_payment"},{"title":"Debtor not follow Debtor's price","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Debtor_not_follow_Debtor%27s_price"},{"title":"Only can Void Today Transaction","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Only_can_Void_Today_Transaction"},{"title":"Stock Transfer - No report found","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Stock_Transfer_-_No_report_found"},{"title":"Service type status not shown when order item","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Service_type_status_not_shown_when_order_item"},{"title":"Duplicate Barcode for itemcode","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Duplicate_Barcode_for_itemcode"},{"title":"Line Printed, cannot set discount on this line","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Line_Printed,_cannot_set_discount_on_this_line"},{"title":"Can\u2019t Override Discount Limit","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Can%E2%80%99t_Override_Discount_Limit"},{"title":"Cash Payment Method is not set","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Cash_Payment_Method_is_not_set"},{"title":"Promotion item cannot change unit price","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Promotion_item_cannot_change_unit_price"},{"title":"Why is my credit card type is blank even though i have maintained credit card type","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_is_my_credit_card_type_is_blank_even_though_i_have_maintained_credit_card_type"},{"title":"Item Price does not follow member price plan","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Item_Price_does_not_follow_member_price_plan"},{"title":"Unable to key in decimal places for bonus point payment","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Unable_to_key_in_decimal_places_for_bonus_point_payment"},{"title":"Why can\u2019t I select new member type at POS Front End even though I have added new member type at POS Back End","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_can%E2%80%99t_I_select_new_member_type_at_POS_Front_End_even_though_I_have_added_new_member_type_at_POS_Back_End"},{"title":"Why user can make payment by point payment even though transaction amount is more than available point?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_user_can_make_payment_by_point_payment_even_though_transaction_amount_is_more_than_available_point%3F"},{"title":"Item able to sell below min selling price after discount","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Item_able_to_sell_below_min_selling_price_after_discount"},{"title":"Item code not found but F1 search is there","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Item_code_not_found_but_F1_search_is_there"},{"title":"Rounding display at FE issue","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Rounding_display_at_FE_issue"},{"title":"E-Wallet payment Error Code: Payment not allowed?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_E-Wallet_payment_Error_Code:_Payment_not_allowed%3F"},{"title":"Refund with vouchers prompt warning","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Refund_with_vouchers_prompt_warning"},{"title":"Cash In & Cash out error","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Cash_In_%26_Cash_out_error"},{"title":"Scan item code will prompt key in price even though auto prompt is inactive?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Scan_item_code_will_prompt_key_in_price_even_though_auto_prompt_is_inactive%3F"},{"title":"Point Payment issue","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Point_Payment_issue"},{"title":"How to enable feature of return earned point when return item?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_How_to_enable_feature_of_return_earned_point_when_return_item%3F"},{"title":"Pos Frontend Why keep charging SST6 even I have specified each item its own tax code?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Pos_Frontend_Why_keep_charging_SST6_even_I_have_specified_each_item_its_own_tax_code%3F"},{"title":"Hotkey or Syntax Formula on enter Barcode","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Hotkey_or_Syntax_Formula_on_enter_Barcode"},{"title":"After payment error Unable to load DLL \u2018USBCR.dll\u2019\u2026","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_After_payment_error_Unable_to_load_DLL_%E2%80%98USBCR.dll%E2%80%99%E2%80%A6"},{"title":"Add member then scan item error","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Add_member_then_scan_item_error"},{"title":"Set Meal error \u2018Object reference not set to an instance of an object\u2019","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Set_Meal_error_%E2%80%98Object_reference_not_set_to_an_instance_of_an_object%E2%80%99"},{"title":"Why Not Allowed Void Posted Transaction","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_Not_Allowed_Void_Posted_Transaction"},{"title":"Why can\u2019t change payment type?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_can%E2%80%99t_change_payment_type%3F"}]},{"title":"Sync","links":[{"title":"Version not match issue during sync","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Version_not_match_issue_during_sync"},{"title":"POS Client Notifier still show error message even though service status shows running?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Client_Notifier_still_show_error_message_even_though_service_status_shows_running%3F"},{"title":"When perform synchronization, system will show error message \"Column 'Modifier' not belongs to posdtl\"?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_perform_synchronization,_system_will_show_error_message_%22Column_%27Modifier%27_not_belongs_to_posdtl%22%3F"},{"title":"Show services has been marked for deletion","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Show_services_has_been_marked_for_deletion"},{"title":"Service Bus Issue","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Service_Bus_Issue"},{"title":"Could not locate new location from frontend","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Could_not_locate_new_location_from_frontend"},{"title":"Unexpected character encountered while parsing value","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Unexpected_character_encountered_while_parsing_value"},{"title":"Sync Issue - Sync Port put wrong","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Issue_-_Sync_Port_put_wrong"},{"title":"When click on Configure Terminal, an error is prompted","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_click_on_Configure_Terminal,_an_error_is_prompted"},{"title":"Sync Error - Cannot set column \u2018ItemGroup\u2019. The value violates the MaxLength limit of this column","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_-_Cannot_set_column_%E2%80%98ItemGroup%E2%80%99._The_value_violates_the_MaxLength_limit_of_this_column"},{"title":"The Password did not match","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_The_Password_did_not_match"},{"title":"Error message when reset terminal pc at POS Server Monitor?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_message_when_reset_terminal_pc_at_POS_Server_Monitor%3F"},{"title":"Sync Error because the \u2018PRIMARY\u2019 filegroup is full","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_because_the_%E2%80%98PRIMARY%E2%80%99_filegroup_is_full"},{"title":"Sync Error 'PaymentAmt Outstanding in docno'","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_%27PaymentAmt_Outstanding_in_docno%27"},{"title":"When sync stuck at sync member and error message occurred (... No type was found that matches the controller named \u201cGetMemberCount\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_sync_stuck_at_sync_member_and_error_message_occurred_(..._No_type_was_found_that_matches_the_controller_named_%E2%80%9CGetMemberCount%E2%80%9D"},{"title":"Why I unable to see updated transaction even though sync is successful?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_I_unable_to_see_updated_transaction_even_though_sync_is_successful%3F"},{"title":"Why POS Server Monitor Sync Profile services keep stopped?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_POS_Server_Monitor_Sync_Profile_services_keep_stopped%3F"},{"title":"Sync Error POS Session","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_POS_Session"},{"title":"Sync stuck at Report and then prompt out primary key error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_stuck_at_Report_and_then_prompt_out_primary_key_error"},{"title":"Synchronizer Error: HQ POS Sync Product ID (Unregistered)\u2026","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Synchronizer_Error:_HQ_POS_Sync_Product_ID_(Unregistered)%E2%80%A6"},{"title":"Sync Issue POS Terminal Member Type","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Issue_POS_Terminal_Member_Type"},{"title":"Sync Error Message status still showing error even though all my pos transaction had been updated to HQ Server?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_Message_status_still_showing_error_even_though_all_my_pos_transaction_had_been_updated_to_HQ_Server%3F"},{"title":"Unable to select terminal id after assigned location","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Unable_to_select_terminal_id_after_assigned_location"},{"title":"Sync error Debtor Address Maxlength limit","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_Debtor_Address_Maxlength_limit"},{"title":"Sync error POSCashRecord Session","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_POSCashRecord_Session"},{"title":"Sync error PosEventLog UserID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_PosEventLog_UserID"},{"title":"Sync error column Description hit MaxLength limit","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_column_Description_hit_MaxLength_limit"},{"title":"Sync error PosEventLog TerminalID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_PosEventLog_TerminalID"},{"title":"When perform sync, system keeps prompt up: POSPayment record not found","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_perform_sync,_system_keeps_prompt_up:_POSPayment_record_not_found"},{"title":"Sync Error Array dimensions exceeded supported range","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_Array_dimensions_exceeded_supported_range"},{"title":"Sync keep prompting PosPayment record not found?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_keep_prompting_PosPayment_record_not_found%3F"},{"title":"Sync error PosDocNoFormat TerminalID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_PosDocNoFormat_TerminalID"},{"title":"Sync error PosStaffAttendance UserID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_PosStaffAttendance_UserID"},{"title":"Sync error Primary Key Error (UOM Conversion)","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_Primary_Key_Error_(UOM_Conversion)"},{"title":"After add New Fiscal Year, Why Synchronizer Error?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_After_add_New_Fiscal_Year,_Why_Synchronizer_Error%3F"},{"title":"Cant sync back PosPayment VCType","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Cant_sync_back_PosPayment_VCType"},{"title":"Sync error Transaction IPHIST Member No.","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_Transaction_IPHIST_Member_No."},{"title":"Sync error PosSession UserID / Checkout User ID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_PosSession_UserID_/_Checkout_User_ID"},{"title":"Sync error UDF Column names in each table must be unique","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_UDF_Column_names_in_each_table_must_be_unique"},{"title":"Error \u201cTransaction Date is not maintained Fiscal Year Range\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_%E2%80%9CTransaction_Date_is_not_maintained_Fiscal_Year_Range%E2%80%9D"},{"title":"Sync error FK_PosPayment_CCType","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_FK_PosPayment_CCType"},{"title":"Sync Error Quantity cannot be zero or negative","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_Quantity_cannot_be_zero_or_negative"},{"title":"Sync error PosDtlPromotion ItemUOM","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_error_PosDtlPromotion_ItemUOM"},{"title":"Sync Error \u2018You should login to the system in order to access the function\u2019","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_%E2%80%98You_should_login_to_the_system_in_order_to_access_the_function%E2%80%99"},{"title":"Sync Primary Key Error TAXEntity table","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Primary_Key_Error_TAXEntity_table"}]},{"title":"POS Posting","links":[{"title":"POS Posting Error \u2013 \u2018Deposit Acc is not set\u2019","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Posting_Error_%E2%80%93_%E2%80%98Deposit_Acc_is_not_set%E2%80%99"},{"title":"POS Posting Error \u2013 \u2018Duplicate Journal Entry No\u2019","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Posting_Error_%E2%80%93_%E2%80%98Duplicate_Journal_Entry_No%E2%80%99"},{"title":"Why is my Sale Account not showing POS Sales Amount","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_my_Sale_Account_not_showing_POS_Sales_Amount"},{"title":"Line 1 Invalid Account No, Posting Error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Line_1_Invalid_Account_No,_Posting_Error"},{"title":"After deleted POS Posting inquiry shows no records?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_After_deleted_POS_Posting_inquiry_shows_no_records%3F"},{"title":"Posting Error - ARInvoice AccNo is empty","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Posting_Error_-_ARInvoice_AccNo_is_empty"},{"title":"Nothing come out when I click on New Posting at POS Posting","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Nothing_come_out_when_I_click_on_New_Posting_at_POS_Posting"},{"title":"Pos posting error - Line 2: Invalid Account No","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Pos_posting_error_-_Line_2:_Invalid_Account_No"},{"title":"Duplicate Cash Book Entry No during pos posting","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Duplicate_Cash_Book_Entry_No_during_pos_posting"},{"title":"Missing POS Posting tab under Location Maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Missing_POS_Posting_tab_under_Location_Maintenance"},{"title":"Point Payment Method is not set","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Point_Payment_Method_is_not_set"},{"title":"Delete POS Posting error DB concurrency violation","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Delete_POS_Posting_error_DB_concurrency_violation"},{"title":"For POS posting, why is credit card bank charges account code different from what I have assigned?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_For_POS_posting,_why_is_credit_card_bank_charges_account_code_different_from_what_I_have_assigned%3F"},{"title":"Posting Error TaxBrNo","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Posting_Error_TaxBrNo"},{"title":"Posting Error - PaymentMethod, CBDate, PaymentNo,InclusiveTax, TaxDocNo","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Posting_Error_-_PaymentMethod,_CBDate,_PaymentNo,InclusiveTax,_TaxDocNo"},{"title":"Posting Separate Number not works","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Posting_Separate_Number_not_works"},{"title":"Posting error show accrual and payment basis tax code issue","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Posting_error_show_accrual_and_payment_basis_tax_code_issue"},{"title":"Pos Posting Error - Duplicate Posting Number","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Pos_Posting_Error_-_Duplicate_Posting_Number"},{"title":"When perform POS posting it shows multiple sales accounts instead of one combined sales account?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_When_perform_POS_posting_it_shows_multiple_sales_accounts_instead_of_one_combined_sales_account%3F"},{"title":"I clicked on Cash Button at POS AR Payment, but the payment method shows bank account instead of cash account?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_I_clicked_on_Cash_Button_at_POS_AR_Payment,_but_the_payment_method_shows_bank_account_instead_of_cash_account%3F"},{"title":"POS Posting Voucher Forfeited AccNo issue.","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_POS_Posting_Voucher_Forfeited_AccNo_issue."},{"title":"POS Posting Service Charge Account is not set.","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_POS_Posting_Service_Charge_Account_is_not_set."}]},{"title":"Login Failed","links":[{"title":"Pos Login Failed - plugin issue","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Pos_Login_Failed_-_plugin_issue"},{"title":"Login Failed sa password","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_Failed_sa_password"},{"title":"Login POS Frontend system Show Failed, incorrect password","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_POS_Frontend_system_Show_Failed,_incorrect_password"},{"title":"Could not Login to POS Backend with Error fail to connect AutoCount Server Service","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Could_not_Login_to_POS_Backend_with_Error_fail_to_connect_AutoCount_Server_Service"},{"title":"Could not login POS Frontend","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Could_not_login_POS_Frontend"},{"title":"Open POS, F&B error, dotNet Issue","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Open_POS,_F%26B_error,_dotNet_Issue"},{"title":"POS BACKEND open error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_BACKEND_open_error"},{"title":"Error when launching Backend","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_when_launching_Backend"},{"title":"Why does system keep prompt to create database whenever I launch the Backend?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_does_system_keep_prompt_to_create_database_whenever_I_launch_the_Backend%3F"},{"title":"Login error \"Could not find any recognizable digits\"","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_error_%22Could_not_find_any_recognizable_digits%22"},{"title":"Login Backend error FK_PosDtl_Dockey","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_Backend_error_FK_PosDtl_Dockey"},{"title":"Login Backend error FK_PosDtlPromotion_Dockey","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_Backend_error_FK_PosDtlPromotion_Dockey"},{"title":"POS Backend unable to load POS plugin","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Backend_unable_to_load_POS_plugin"}]},{"title":"License","links":[{"title":"When click on Hardware Info, system will pop up error message \u201cUnhandled exception has occurred in your application\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_click_on_Hardware_Info,_system_will_pop_up_error_message_%E2%80%9CUnhandled_exception_has_occurred_in_your_application%E2%80%9D"},{"title":"When click on License Control, system will pop up error message \u201c System.TypeInitializationException\u2026\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_click_on_License_Control,_system_will_pop_up_error_message_%E2%80%9C_System.TypeInitializationException%E2%80%A6%E2%80%9D"},{"title":"When configure Front End terminal, system will pop up error message \u201cThe type initiaiizer for \u2018AutoCount.POS.SecurityUtils\u2026\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_configure_Front_End_terminal,_system_will_pop_up_error_message_%E2%80%9CThe_type_initiaiizer_for_%E2%80%98AutoCount.POS.SecurityUtils%E2%80%A6%E2%80%9D"},{"title":"When active License get error of Hardware Session ID not match","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_active_License_get_error_of_Hardware_Session_ID_not_match"},{"title":"License Control Error System.IO.IOExeption","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_License_Control_Error_System.IO.IOExeption"},{"title":"License Status become Stale State how to fix?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_License_Status_become_Stale_State_how_to_fix%3F"},{"title":"Activate Pos Backend Error using dongle","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Activate_Pos_Backend_Error_using_dongle"},{"title":"Sync monitor profile services unable to start","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_monitor_profile_services_unable_to_start"},{"title":"Auto Sync Notifier unable to start","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Auto_Sync_Notifier_unable_to_start"},{"title":"Error: System found don\u2019t have POS Item Batch module","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error:_System_found_don%E2%80%99t_have_POS_Item_Batch_module"},{"title":"Import Itemcode Error - Multi UOM","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Import_Itemcode_Error_-_Multi_UOM"},{"title":"Login to POS Backend with Error Fail to connect AutoCount Server Service","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_to_POS_Backend_with_Error_Fail_to_connect_AutoCount_Server_Service"},{"title":"Register License prompted Same device can only maintain 1 temp product ID","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Register_License_prompted_Same_device_can_only_maintain_1_temp_product_ID"},{"title":"Unable register account book at Autocount server","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Unable_register_account_book_at_Autocount_server"},{"title":"Could not insert license to Frontend POS/FnB?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Could_not_insert_license_to_Frontend_POS/FnB%3F"}]},{"title":"Maintenance","links":[{"title":"Error when save Design Fast Selection Menu Details","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_when_save_Design_Fast_Selection_Menu_Details"},{"title":"Why is Menu Button rolled back to default sequence?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_Menu_Button_rolled_back_to_default_sequence%3F"},{"title":"Why is my promotion item not working when sell quantity is less than 1?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_my_promotion_item_not_working_when_sell_quantity_is_less_than_1%3F"},{"title":"Why is the selling price markup % not automatically calculated?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_the_selling_price_markup_%25_not_automatically_calculated%3F"},{"title":"Change Credit Card ID prompt error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Change_Credit_Card_ID_prompt_error"},{"title":"When change Item Group, item Price also changed?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_change_Item_Group,_item_Price_also_changed%3F"},{"title":"Delete Location Error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Delete_Location_Error"},{"title":"Unable to find POS Option Maintenance at POS Backend after updated to new version","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Unable_to_find_POS_Option_Maintenance_at_POS_Backend_after_updated_to_new_version"},{"title":"Price did not update","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Price_did_not_update"},{"title":"Authorize code prompts","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Authorize_code_prompts"},{"title":"Column reset every time open POS","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Column_reset_every_time_open_POS"},{"title":"New member type missing even after full sync","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_New_member_type_missing_even_after_full_sync"},{"title":"Promotion Maintenance show duplicate item when save","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Promotion_Maintenance_show_duplicate_item_when_save"},{"title":"Custom Payment Method Missing","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Custom_Payment_Method_Missing"},{"title":"Remote HQ failed to login","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Remote_HQ_failed_to_login"},{"title":"Can't View Picture in Fast selection Menu","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Can%27t_View_Picture_in_Fast_selection_Menu"},{"title":"Error message prompted during Cash Computation","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_message_prompted_during_Cash_Computation"},{"title":"Configuration setting error message","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Configuration_setting_error_message"},{"title":"Purge POS Transaction shows no data","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Purge_POS_Transaction_shows_no_data"},{"title":"After migrated from POS 3 to POS 5, POS options does not work","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_After_migrated_from_POS_3_to_POS_5,_POS_options_does_not_work"},{"title":"POS Backend options are not be set","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Backend_options_are_not_be_set"},{"title":"Different Outstanding Document Numbering When Create AR Payment in POS","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Different_Outstanding_Document_Numbering_When_Create_AR_Payment_in_POS"},{"title":"\"Please configure HQ Database information first.\" prompted when click on Remote HQ Function","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_%22Please_configure_HQ_Database_information_first.%22_prompted_when_click_on_Remote_HQ_Function"},{"title":"There is no data for PosCashSeries table. You must go to pos option to maintain PosCashSeries table.","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_There_is_no_data_for_PosCashSeries_table._You_must_go_to_pos_option_to_maintain_PosCashSeries_table."},{"title":"POS Sales are not shown in Price History Settings","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Sales_are_not_shown_in_Price_History_Settings"},{"title":"Enable minimum selling price issue","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Enable_minimum_selling_price_issue"},{"title":"Cash computation missing some bank notes amount","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Cash_computation_missing_some_bank_notes_amount"},{"title":"Unable to delete commission from commission maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Unable_to_delete_commission_from_commission_maintenance"},{"title":"Why is the system rounding up decimal point value at point payment even though bonus point adjustment rounding method is disabled","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_is_the_system_rounding_up_decimal_point_value_at_point_payment_even_though_bonus_point_adjustment_rounding_method_is_disabled"},{"title":"Menu design did not load items related to Group/Type","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Menu_design_did_not_load_items_related_to_Group/Type"},{"title":"Why I had set company details in company profile, but for Cash In & Out slip still showing other company details?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_I_had_set_company_details_in_company_profile,_but_for_Cash_In_%26_Out_slip_still_showing_other_company_details%3F"},{"title":"Why system still allow to pass exceed maximum discount limit even though I had set the maximum discount for user group","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_system_still_allow_to_pass_exceed_maximum_discount_limit_even_though_I_had_set_the_maximum_discount_for_user_group"},{"title":"When select Member the item price is changed?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_When_select_Member_the_item_price_is_changed%3F"},{"title":"Why promotion item discount is not working when purchase quantity is less than 1?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_promotion_item_discount_is_not_working_when_purchase_quantity_is_less_than_1%3F"},{"title":"Edit POS transaction from Backend","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Edit_POS_transaction_from_Backend"},{"title":"Stock Item Maintenance only show 1 location up to date cost","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Stock_Item_Maintenance_only_show_1_location_up_to_date_cost"},{"title":"Disable Earn Bonus point for promotion item","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Disable_Earn_Bonus_point_for_promotion_item"},{"title":"Ewallet payment error","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Ewallet_payment_error"},{"title":"Unable to change location code","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Unable_to_change_location_code"},{"title":"Item Batch did not show item batch no","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Item_Batch_did_not_show_item_batch_no"},{"title":"Stock Adjustment location issue","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Stock_Adjustment_location_issue"},{"title":"Internet User login Error","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Internet_User_login_Error"},{"title":"Unable to change Promoter ID","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Unable_to_change_Promoter_ID"},{"title":"Why can\u2019t members trigger promotion price?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Why_can%E2%80%99t_members_trigger_promotion_price%3F"},{"title":"Enter Password Open Cash Drawer","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Enter_Password_Open_Cash_Drawer"},{"title":"Failed to Send Test Email for Gmail SMTP server in Pos Terminal settings?","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Failed_to_Send_Test_Email_for_Gmail_SMTP_server_in_Pos_Terminal_settings%3F"},{"title":"Error when click \u2018+\u2019 for new Member No.","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Error_when_click_%E2%80%98%2B%E2%80%99_for_new_Member_No."},{"title":"After payment there is an error prompt \u201cFailed to open port:\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_After_payment_there_is_an_error_prompt_%E2%80%9CFailed_to_open_port:%E2%80%9D"},{"title":"Save Configuration Setting error. Access to the path is denied","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Save_Configuration_Setting_error._Access_to_the_path_is_denied"}]},{"title":"Reporting","links":[{"title":"Inquiry POS report error Value was either too large or too small for lnt32","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Inquiry_POS_report_error_Value_was_either_too_large_or_too_small_for_lnt32"},{"title":"Some of sales items are missing when view POS Sales Report","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Some_of_sales_items_are_missing_when_view_POS_Sales_Report"},{"title":"Item numbering not appeared in Receipt","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Item_numbering_not_appeared_in_Receipt"},{"title":"Multi filters option causes some items not displayed","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Multi_filters_option_causes_some_items_not_displayed"},{"title":"Price decimal in barcode sticker","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Price_decimal_in_barcode_sticker"},{"title":"\"No report found.\" When I preview report in POS","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_%22No_report_found.%22_When_I_preview_report_in_POS"},{"title":"Promoter Sales Analysis Report: Promoter ID shown in wrong outlet","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Promoter_Sales_Analysis_Report:_Promoter_ID_shown_in_wrong_outlet"},{"title":"When preview daily sales report for November, some transaction amount fall on 31st November?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_preview_daily_sales_report_for_November,_some_transaction_amount_fall_on_31st_November%3F"},{"title":"Stock Balance Qty is 0 but it still has Cost Value?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Stock_Balance_Qty_is_0_but_it_still_has_Cost_Value%3F"},{"title":"Why is the amount in Ledger Sales Account not the same as POS Posting payment","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_the_amount_in_Ledger_Sales_Account_not_the_same_as_POS_Posting_payment"},{"title":"Why is the final total in Pos Transaction Viewer not the same as Daily Sales Report?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_the_final_total_in_Pos_Transaction_Viewer_not_the_same_as_Daily_Sales_Report%3F"},{"title":"Report design does not contain company info","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Report_design_does_not_contain_company_info"}]},{"title":"EInvoice","links":[{"title":"When click refresh E-Invoice Monitor there is an error prompt \u201cCompany or api invalid\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_When_click_refresh_E-Invoice_Monitor_there_is_an_error_prompt_%E2%80%9CCompany_or_api_invalid%E2%80%9D"},{"title":"When direct submit E-Invoive failed with TIN ownership error message.","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_When_direct_submit_E-Invoive_failed_with_TIN_ownership_error_message."},{"title":"Error Submit EInvoice. AIP Company ID not found","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Error_Submit_EInvoice._AIP_Company_ID_not_found"},{"title":"When Generate Consolidated e-Invoice, there is a warning that stop me from proceeding","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_When_Generate_Consolidated_e-Invoice,_there_is_a_warning_that_stop_me_from_proceeding"},{"title":"When Generate Consolidated e-Invoive there are no POS record","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_When_Generate_Consolidated_e-Invoive_there_are_no_POS_record"},{"title":"E-Invoice Invalid error Tax Entity ID (1) not found","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_E-Invoice_Invalid_error_Tax_Entity_ID_(1)_not_found"},{"title":"Document issuance date time is in the future","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Document_issuance_date_time_is_in_the_future"},{"title":"Subscribe QR2E open license Product ID () not found.","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Subscribe_QR2E_open_license_Product_ID_()_not_found."},{"title":"Submit Einvoice Failed - Tax Entity ID (36) not found","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB:_Submit_Einvoice_Failed_-_Tax_Entity_ID_(36)_not_found"}]},{"title":"Others","links":[{"title":"Printer Unable to Print Summary Counter Receipt","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Printer_Unable_to_Print_Summary_Counter_Receipt"},{"title":"Export Price to Weighting Scale = Weight Class","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Export_Price_to_Weighting_Scale_%3D_Weight_Class"},{"title":"Why can\u2019t I turn on Hamachi VPN?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_can%E2%80%99t_I_turn_on_Hamachi_VPN%3F"},{"title":"I have already set photo and video link for LCD Customer Display screen but still not showing?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_I_have_already_set_photo_and_video_link_for_LCD_Customer_Display_screen_but_still_not_showing%3F"},{"title":"Reprint receipt always printed from other printer?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Reprint_receipt_always_printed_from_other_printer%3F"},{"title":"Creating New Receipt & Payment Voucher is very slow?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Creating_New_Receipt_%26_Payment_Voucher_is_very_slow%3F"},{"title":"Import data in Bonus Point Adjustment Error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Import_data_in_Bonus_Point_Adjustment_Error"},{"title":"Stock Item Listing Qty does not match with other stock reports","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Stock_Item_Listing_Qty_does_not_match_with_other_stock_reports"},{"title":"Sales submission error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sales_submission_error"},{"title":"Application error during eDashBoard registration","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Application_error_during_eDashBoard_registration"},{"title":"Migrate database to POS 5/F&B error 'Invalid database...'","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Migrate_database_to_POS_5/F%26B_error_%27Invalid_database...%27"},{"title":"Error 1001 on re-installation","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_1001_on_re-installation"},{"title":"Why is my eDashboard transaction sync status keep show pending","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_my_eDashboard_transaction_sync_status_keep_show_pending"},{"title":"Why is there a Decimal value after Auto UOM Conversion","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_there_a_Decimal_value_after_Auto_UOM_Conversion"},{"title":"SQL services unable to start","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_SQL_services_unable_to_start"},{"title":"Autocount Server services unable to start due to default port 19500 has been used by other program?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Autocount_Server_services_unable_to_start_due_to_default_port_19500_has_been_used_by_other_program%3F"},{"title":"Receipt shows abnormal contents","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Receipt_shows_abnormal_contents"},{"title":"Script password during upgrade 1.9 to 5.0","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Script_password_during_upgrade_1.9_to_5.0"},{"title":"When connected to android price checker, system shows network error message","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_connected_to_android_price_checker,_system_shows_network_error_message"},{"title":"When connected to android price checker, system shows timeout error message","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_connected_to_android_price_checker,_system_shows_timeout_error_message"},{"title":"eDashBoard login screen error \u2018The login isn\u2019t the user of the Database\u2019","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_eDashBoard_login_screen_error_%E2%80%98The_login_isn%E2%80%99t_the_user_of_the_Database%E2%80%99"},{"title":"POS Second Display could not play video link","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_Second_Display_could_not_play_video_link"},{"title":"When print receipt, system prompt \u201cAccess to the printer is denied.\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_print_receipt,_system_prompt_%E2%80%9CAccess_to_the_printer_is_denied.%E2%80%9D"},{"title":"Printer print receipt issue","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Printer_print_receipt_issue"},{"title":"POS installation error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS_installation_error"},{"title":"Why does system still prompt (Please enter amount) even though I have enter a valid voucher?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_does_system_still_prompt_(Please_enter_amount)_even_though_I_have_enter_a_valid_voucher%3F"},{"title":"Upgrade 5.0 to 5.1 posterminalplugin error message","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Upgrade_5.0_to_5.1_posterminalplugin_error_message"},{"title":"Login License error Value cannot be null","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_License_error_Value_cannot_be_null"},{"title":"Backend eDashboard login error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Backend_eDashboard_login_error"},{"title":"Sync Error - System Out Of Memory Exception","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Sync_Error_-_System_Out_Of_Memory_Exception"},{"title":"License Control Error - Processor and Ram Missing","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_License_Control_Error_-_Processor_and_Ram_Missing"},{"title":"Pos integration - The remote server returned an error","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Pos_integration_-_The_remote_server_returned_an_error"},{"title":"Edashboard login issue","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Edashboard_login_issue"},{"title":"Install SQL server failed, and database engine failed to start?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Install_SQL_server_failed,_and_database_engine_failed_to_start%3F"},{"title":"Second Display Unable to play video","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Second_Display_Unable_to_play_video"},{"title":"When run POS Sync Monitor program, system will pop up error message","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_When_run_POS_Sync_Monitor_program,_system_will_pop_up_error_message"},{"title":"Item not calculate SST amount","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Item_not_calculate_SST_amount"},{"title":"1st time setup EDashBoard but transaction does not sync?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_1st_time_setup_EDashBoard_but_transaction_does_not_sync%3F"},{"title":"Restore Conf. Setting button","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Restore_Conf._Setting_button"},{"title":"Error launch SQL Configuration Manager Invalid Class 0x80041010","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Error_launch_SQL_Configuration_Manager_Invalid_Class_0x80041010"},{"title":"Why is cash drawer ejected when print order slip or hold bill?","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Why_is_cash_drawer_ejected_when_print_order_slip_or_hold_bill%3F"},{"title":"Insert license error Product ID is used by dongle","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Insert_license_error_Product_ID_is_used_by_dongle"},{"title":"Login or Logout EDashBoard error Not found","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Login_or_Logout_EDashBoard_error_Not_found"},{"title":"POS5/FNB window resolution issue","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_POS5/FNB_window_resolution_issue"},{"title":"Migrate error Column \u2018AccountingBasis\u2019 does not not allow nulls","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Migrate_error_Column_%E2%80%98AccountingBasis%E2%80%99_does_not_not_allow_nulls"},{"title":"Stock Item Inquiry can't view POS transactions","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Stock_Item_Inquiry_can%27t_view_POS_transactions"},{"title":"Could not create or restore database","url":"https://wiki.autocountsoft.com/wiki/Pos3/5/FNB:_Could_not_create_or_restore_database"}]}],"count":253}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.0_FAQ_Application","title":"FnB 5.0 FAQ","desc":"Application questions for restaurant and FnB workflows.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.0_FAQ_Application","groups":[{"title":"Data Entry","links":[{"title":"How to split transaction bill?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_split_transaction_bill%3F"},{"title":"How to change service type to \u201cTake Away\u201d while ordering item in Table \u201cDine In\u201d layout?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_change_service_type_to_%E2%80%9CTake_Away%E2%80%9D_while_ordering_item_in_Table_%E2%80%9CDine_In%E2%80%9D_layout%3F"},{"title":"How to combine bill?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_combine_bill%3F"},{"title":"How to set FOC Item in FNB?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_FOC_Item_in_FNB%3F"}]},{"title":"Service Charge","links":[{"title":"How to set No Service Charge Item?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_No_Service_Charge_Item%3F"},{"title":"How to set Non Discount Item?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_Non_Discount_Item%3F"},{"title":"How to set modifier item with surcharge?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_modifier_item_with_surcharge%3F"},{"title":"How to enable service charge","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_enable_service_charge"},{"title":"How to set VIP tables with higher rate of service charge","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_VIP_tables_with_higher_rate_of_service_charge"}]},{"title":"Maintenance","links":[{"title":"How to set print 2 copies of kitchen receipt?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_print_2_copies_of_kitchen_receipt%3F"},{"title":"How to delete Report Name (Kitchen) record in Kitchen Printer Maintenance?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_delete_Report_Name_(Kitchen)_record_in_Kitchen_Printer_Maintenance%3F"},{"title":"How to set default table layout after make payment or login?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_default_table_layout_after_make_payment_or_login%3F"},{"title":"How to hide unused function button on table floor screen?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_hide_unused_function_button_on_table_floor_screen%3F"},{"title":"How to turn off Auto print Order Slip when confirm order?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_turn_off_Auto_print_Order_Slip_when_confirm_order%3F"},{"title":"How to enable tip collection on payment?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_enable_tip_collection_on_payment%3F"},{"title":"How to change table service type status permanently?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_change_table_service_type_status_permanently%3F"},{"title":"How to set item ingredient?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_item_ingredient%3F"},{"title":"How to set stock item as Out of Stock?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_stock_item_as_Out_of_Stock%3F"},{"title":"How to enable Order No./Queue No.","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_enable_Order_No./Queue_No."},{"title":"How to create Discount button?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_create_Discount_button%3F"},{"title":"How to set screen ratio of ordering?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_screen_ratio_of_ordering%3F"},{"title":"How to set up kitchen printer for FNB system?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_up_kitchen_printer_for_FNB_system%3F"},{"title":"How to set different kitchen report formats to each kitchen printer?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_set_different_kitchen_report_formats_to_each_kitchen_printer%3F"},{"title":"How to change alternative Menu manually?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_change_alternative_Menu_manually%3F"},{"title":"How if I want to use table layout to take order without pax number?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_if_I_want_to_use_table_layout_to_take_order_without_pax_number%3F"},{"title":"How to show table with timer?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_show_table_with_timer%3F"}]},{"title":"Fast Selection Menu","links":[{"title":"How to create set meal in F&B system and display them in menu?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_create_set_meal_in_F%26B_system_and_display_them_in_menu%3F"},{"title":"How to duplicate Fast Selection Menu?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_duplicate_Fast_Selection_Menu%3F"},{"title":"How to add image on menu button?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_add_image_on_menu_button%3F"},{"title":"How to change item menu button size?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_change_item_menu_button_size%3F"},{"title":"How to change menu button color?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_change_menu_button_color%3F"},{"title":"How to change menu button sequence arrangement?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_change_menu_button_sequence_arrangement%3F"}]},{"title":"Others","links":[{"title":"How to add order item by searching item code in ewaiter?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_add_order_item_by_searching_item_code_in_ewaiter%3F"},{"title":"How to establish E Waiter Ordering App Connection?","url":"https://wiki.autocountsoft.com/wiki/FnB:_How_to_establish_E_Waiter_Ordering_App_Connection%3F"}]},{"title":"Philippines","links":[{"title":"Close Counter Process","url":"https://wiki.autocountsoft.com/wiki/Pos5/FNB_(PH):_Close_Counter_Process"}]}],"count":35}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.0_FAQ_Troubleshoot","title":"FnB 5.0 Troubleshoot","desc":"Issue-focused help for FnB operations.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.0_FAQ_Troubleshoot","groups":[{"title":"Maintenance","links":[{"title":"Service type status does not follow table design setting","url":"https://wiki.autocountsoft.com/wiki/FnB:_Service_type_status_does_not_follow_table_design_setting"},{"title":"Kitchen printer cant print out kitchen slip","url":"https://wiki.autocountsoft.com/wiki/FnB:_Kitchen_printer_cant_print_out_kitchen_slip"},{"title":"Why is FNB POS not auto-tick print order slip?","url":"https://wiki.autocountsoft.com/wiki/FnB:_Why_is_FNB_POS_not_auto-tick_print_order_slip%3F"},{"title":"Why is the receipt printer printing a slip of order number before the receipt?","url":"https://wiki.autocountsoft.com/wiki/FnB:_Why_is_the_receipt_printer_printing_a_slip_of_order_number_before_the_receipt%3F"},{"title":"Item did not show service type","url":"https://wiki.autocountsoft.com/wiki/FnB:_Item_did_not_show_service_type"},{"title":"UDF does not appear in F&B","url":"https://wiki.autocountsoft.com/wiki/FnB:_UDF_does_not_appear_in_F%26B"}]},{"title":"Fast Selection Menu","links":[{"title":"Fast Selection Menu not shown at FnB FrontEnd after sync","url":"https://wiki.autocountsoft.com/wiki/FnB:_Fast_Selection_Menu_not_shown_at_FnB_FrontEnd_after_sync"},{"title":"Why is the item button not showing image and description?","url":"https://wiki.autocountsoft.com/wiki/FnB:_Why_is_the_item_button_not_showing_image_and_description%3F"},{"title":"Save Set Meal without Dessert Category","url":"https://wiki.autocountsoft.com/wiki/FnB:_Save_Set_Meal_without_Dessert_Category"}]},{"title":"Sync","links":[{"title":"Manual sync error message (Both POS and FnB database are same, does not allow start window services twice)?","url":"https://wiki.autocountsoft.com/wiki/FnB:_Manual_sync_error_message_(Both_POS_and_FnB_database_are_same,_does_not_allow_start_window_services_twice)%3F"}]},{"title":"Others","links":[{"title":"E waiter app unable to login for first time setup","url":"https://wiki.autocountsoft.com/wiki/FnB:_E_waiter_app_unable_to_login_for_first_time_setup"},{"title":"Order slip cant print out while using E waiter make order","url":"https://wiki.autocountsoft.com/wiki/FnB:_Order_slip_cant_print_out_while_using_E_waiter_make_order"},{"title":"Reset Order Session issue","url":"https://wiki.autocountsoft.com/wiki/FnB:_Reset_Order_Session_issue"},{"title":"I have 2 table section layouts, but when login to FnB it will always show 2nd table section instead of 1st table section?","url":"https://wiki.autocountsoft.com/wiki/FnB:_I_have_2_table_section_layouts,_but_when_login_to_FnB_it_will_always_show_2nd_table_section_instead_of_1st_table_section%3F"},{"title":"Android Price Checker error during launch","url":"https://wiki.autocountsoft.com/wiki/FnB:_Android_Price_Checker_error_during_launch"},{"title":"When login to EWaiter, login fails with network error","url":"https://wiki.autocountsoft.com/wiki/FnB:_When_login_to_EWaiter,_login_fails_with_network_error"},{"title":"Why 2nd display can\u2019t right click column chooser?","url":"https://wiki.autocountsoft.com/wiki/FnB:_Why_2nd_display_can%E2%80%99t_right_click_column_chooser%3F"}]}],"count":17}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0_FAQ_Application","title":"POS 5.0 FAQ","desc":"Application help for core AutoCount POS 5.0.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0_FAQ_Application","groups":[{"title":"Featured","links":[{"title":"How to Enable Open Cash Drawer for Credit Card Payment?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_How_to_Enable_Open_Cash_Drawer_for_Credit_Card_Payment%3F"},{"title":"POS Cash Sale vs Credit Sales vs Sales Order?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_POS_Cash_Sale_vs_Credit_Sales_vs_Sales_Order%3F"},{"title":"What is Sales Order and how to use?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_What_is_Sales_Order_and_how_to_use%3F"},{"title":"How to change sales type of POS5","url":"https://wiki.autocountsoft.com/wiki/Pos5:_How_to_change_sales_type_for_POS5"},{"title":"How to customize e-wallet payment shortcut button","url":"https://wiki.autocountsoft.com/wiki/Pos5:_How_to_customize_e-wallet_payment_shortcut_button"},{"title":"How to permanently show menu layout at POS 5.0 Retail?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_How_to_permanently_show_menu_layout_at_POS_5.0_Retail%3F"},{"title":"How to insert company logo in POS5","url":"https://wiki.autocountsoft.com/wiki/Pos5:_How_to_insert_company_logo_in_POS5"}]}],"count":7}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0_FAQ_Troubleshoot","title":"POS 5.0 Troubleshoot","desc":"Troubleshooting paths for POS 5.0 issues.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0_FAQ_Troubleshoot","groups":[{"title":"Data Entry","links":[{"title":"Why is the printer straight away printing when scanned an item?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_Why_is_the_printer_straight_away_printing_when_scanned_an_item%3F"},{"title":"GIT unable to click confirm button","url":"https://wiki.autocountsoft.com/wiki/Pos5:_GIT_unable_to_click_confirm_button"},{"title":"Return Stock Cost issue","url":"https://wiki.autocountsoft.com/wiki/Pos5:_Return_Stock_Cost_issue"},{"title":"Could not return item serial number if return more than 1 quantity","url":"https://wiki.autocountsoft.com/wiki/Pos5:_Could_not_return_item_serial_number_if_return_more_than_1_quantity"}]},{"title":"Maintenance","links":[{"title":"Why is my (Find Sales Order) button not appeared at POS?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_Why_is_my_(Find_Sales_Order)_button_not_appeared_at_POS%3F"},{"title":"Sales Order not working?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_Sales_Order_not_working%3F"},{"title":"System shows invalid backend user id & password when accept GIT stock transfer at FE?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_System_shows_invalid_backend_user_id_%26_password_when_accept_GIT_stock_transfer_at_FE%3F"},{"title":"After upgraded to POS 5 or FNB from POS 3, what do I need to do after changed options setting?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_After_upgraded_to_POS_5_or_FNB_from_POS_3,_what_do_I_need_to_do_after_changed_options_setting%3F"},{"title":"I have customized receipt for POS5 but print out still default format","url":"https://wiki.autocountsoft.com/wiki/Pos5:_I_have_customized_receipt_for_POS5_but_print_out_still_default_format"},{"title":"System always prompts to choose Sales Order or Cash Sale","url":"https://wiki.autocountsoft.com/wiki/Pos5:_System_always_prompts_to_choose_Sales_Order_or_Cash_Sale"},{"title":"Can\u2019t tick any hold bill?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_Can%E2%80%99t_tick_any_hold_bill%3F"},{"title":"I have changed bonus point calculation option to (Calculate bonus points based on item's quantity) but the item still not earning any point?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_I_have_changed_bonus_point_calculation_option_to_(Calculate_bonus_points_based_on_item%27s_quantity)_but_the_item_still_not_earning_any_point%3F"},{"title":"The font size of front end net total at top right corner suddenly become small?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_The_font_size_of_front_end_net_total_at_top_right_corner_suddenly_become_small%3F"}]},{"title":"Report Design","links":[{"title":"There is no parameter field shown when designing hold bill receipt format report?","url":"https://wiki.autocountsoft.com/wiki/Pos5:_There_is_no_parameter_field_shown_when_designing_hold_bill_receipt_format_report%3F"}]}],"count":14}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_OneSales_Pos_FAQ_Application","title":"OneSales POS FAQ","desc":"Application topics for AutoCount OneSales POS.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_OneSales_Pos_FAQ_Application","groups":[{"title":"Data Entry","links":[{"title":"How to use an old Terminal ID on new PC?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_use_an_old_Terminal_ID_on_new_PC%3F"}]},{"title":"Sync","links":[{"title":"Where to find OneSales API key for POS front end synchronize?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Where_to_find_OneSales_API_key_for_POS_front_end_synchronize%3F"}]},{"title":"Maintenance","links":[{"title":"How to preset remark for cash in & cash out process?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_How_to_preset_remark_for_cash_in_%26_cash_out_process%3F"},{"title":"How to configure POS user access right maintenance?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_How_to_configure_POS_user_access_right_maintenance%3F"}]},{"title":"Others","links":[{"title":"Where to get the latest OneSales Setup files?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Where_to_get_the_latest_OneSales_Setup_files%3F"},{"title":"How to create new members on OneSales POS frontend?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_How_to_create_new_members_on_OneSales_POS_frontend%3F"},{"title":"How to set OneSales Member point validity period?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_How_to_set_OneSales_Member_point_validity_period%3F"}]}],"count":7}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_OneSales_Pos_FAQ_Troubleshoot","title":"OneSales POS Troubleshoot","desc":"Issue categories for OneSales POS users.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_OneSales_Pos_FAQ_Troubleshoot","groups":[{"title":"Sync","links":[{"title":"Get Location error","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Get_Location_error"},{"title":"Unable to sync back to OneSales Web Portal show sync error message?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Unable_to_sync_back_to_OneSales_Web_Portal_show_sync_error_message%3F"},{"title":"Sync Issue - Load dbsetting error","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Sync_Issue_-_Load_dbsetting_error"}]},{"title":"POS Posting","links":[{"title":"Unable to do POS posting due to sync issue warning has occurred?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Unable_to_do_POS_posting_due_to_sync_issue_warning_has_occurred%3F"}]},{"title":"Others","links":[{"title":"Location and terminal not appear after configure","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Location_and_terminal_not_appear_after_configure"},{"title":"Unable to access OneSales Web Portal?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Unable_to_access_OneSales_Web_Portal%3F"},{"title":"OneSales POS Frontend unable to select member even after I have linked to OneRewards?","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_OneSales_POS_Frontend_unable_to_select_member_even_after_I_have_linked_to_OneRewards%3F"},{"title":"Could not launch OneSales POS","url":"https://wiki.autocountsoft.com/wiki/OneSales_Pos:_Could_not_launch_OneSales_POS"}]}],"count":8}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.1_FAQ_Application","title":"Optical POS 2.1 FAQ","desc":"Application support for optical retail workflows.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.1_FAQ_Application","groups":[{"title":"Sync","links":[{"title":"How to retrieve others account book customer records?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_retrieve_others_account_book_customer_records%3F"},{"title":"How to re-sync batch bill back to HQ?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_re-sync_batch_bill_back_to_HQ%3F"}]},{"title":"Maintenance","links":[{"title":"How to create server ID (Sync Profile)?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_create_server_ID_(Sync_Profile)%3F"},{"title":"How to enlarge Optical POS backend menu font size?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_enlarge_Optical_POS_backend_menu_font_size%3F"},{"title":"How to set different Company Profile for Frontend?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_set_different_Company_Profile_for_Frontend%3F"},{"title":"How to set Optical Pos Prefix estimate collection date?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_set_Optical_Pos_Prefix_estimate_collection_date%3F"},{"title":"How to set minimum deposit rate for sales order?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_set_minimum_deposit_rate_for_sales_order%3F"}]},{"title":"Others","links":[{"title":"How to adjust Auto Sync Interval time?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_adjust_Auto_Sync_Interval_time%3F"},{"title":"How to clear All transaction for outlet?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_How_to_clear_All_transaction_for_outlet%3F"}]}],"count":9}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.1_FAQ_Troubleshoot","title":"Optical POS 2.1 Troubleshoot","desc":"Issue-focused optical POS categories.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.1_FAQ_Troubleshoot","groups":[{"title":"Data Entry","links":[{"title":"Sync Down Connection error prompt after login","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_Sync_Down_Connection_error_prompt_after_login"},{"title":"Sync Down SQL connection error prompt after login","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_Sync_Down_SQL_connection_error_prompt_after_login"},{"title":"When select Cash Sales why will it save as Sales Order?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_When_select_Cash_Sales_why_will_it_save_as_Sales_Order%3F"},{"title":"The Stock Record not Found even completed full sync successfully?","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_The_Stock_Record_not_Found_even_completed_full_sync_successfully%3F"}]},{"title":"Maintenance","links":[{"title":"Click Outlet Maintenance Cannot find table 0","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_Click_Outlet_Maintenance_Cannot_find_table_0"},{"title":"System pops up error message when click new outlet","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_System_pops_up_error_message_when_click_new_outlet"}]},{"title":"Others","links":[{"title":"Login Accounting can\u2019t load Optical POS Plugin","url":"https://wiki.autocountsoft.com/wiki/Optical_Pos:_Login_Accounting_can%E2%80%99t_load_Optical_POS_Plugin"}]}],"count":7}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_QR_Ordering_FAQ_Application","title":"QR Ordering FAQ","desc":"Application guidance for QR ordering setup and usage.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_QR_Ordering_FAQ_Application","groups":[{"title":"Featured","links":[{"title":"How to maintain specific date period for shop closure","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_How_to_maintain_specific_date_period_for_shop_closure"},{"title":"Set QR ordering Expiration","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Set_QR_ordering_Expiration"}]}],"count":2}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_QR_Ordering_FAQ_Troubleshoot","title":"QR Ordering Troubleshoot","desc":"Problem-solving categories for QR ordering.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_QR_Ordering_FAQ_Troubleshoot","groups":[{"title":"Featured","links":[{"title":"Failed to publish Fast Selection Menu","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Failed_to_publish_Fast_Selection_Menu"},{"title":"Why are QR ordering menu and frontend menu different?","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Why_are_QR_ordering_menu_and_frontend_menu_different%3F"},{"title":"Terminal ID did not show restaurant button","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Terminal_ID_did_not_show_restaurant_button"},{"title":"Why is QR Ordering app keep showing the restaurant is closed?","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Why_is_QR_Ordering_app_keep_showing_the_restaurant_is_closed%3F"},{"title":"Message prompted resource not found when open restaurant?","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Message_prompted_resource_not_found_when_open_restaurant%3F"},{"title":"Why is QR order no showing service charge, rounding adjustment, tax charge?","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Why_is_QR_order_no_showing_service_charge,_rounding_adjustment,_tax_charge%3F"},{"title":"Get Restaurant error at Terminal for QR Ordering","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_Get_Restaurant_error_at_Terminal_for_QR_Ordering"},{"title":"QR ordering alive status 'X'","url":"https://wiki.autocountsoft.com/wiki/FNB/QR_ordering:_QR_ordering_alive_status_%27X%27"}]}],"count":8}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_PalmPos_FAQ_Application","title":"PalmPOS FAQ","desc":"Application questions for PalmPOS workflows.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_PalmPos_FAQ_Application","groups":[{"title":"Maintenance","links":[{"title":"Change Decimal","url":"https://wiki.autocountsoft.com/wiki/PalmPos:_Change_Decimal"}]}],"count":1}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_PalmPos_FAQ_Troubleshoot","title":"PalmPOS Troubleshoot","desc":"Troubleshooting categories for PalmPOS.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_PalmPos_FAQ_Troubleshoot","groups":[{"title":"Maintenance","links":[{"title":"Why my receipt can\u2019t show company BRN.","url":"https://wiki.autocountsoft.com/wiki/PalmPos:_Why_my_receipt_can%E2%80%99t_show_company_BRN."}]}],"count":1}},{"kind":"application","badgeClass":"","badge":"Application","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_3.0:_FAQ_Application","title":"POS 3.1 FAQ","desc":"Application support for AutoCount POS 3.1.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_3.0:_FAQ_Application","groups":[{"title":"Data Entry","links":[{"title":"Check out for terminal vs checkout for cashier","url":"https://wiki.autocountsoft.com/wiki/Pos:_Check_out_for_terminal_vs_checkout_for_cashier"},{"title":"How to print Full Tax Invoice in AutoCount POS","url":"https://wiki.autocountsoft.com/wiki/Pos:How_to_print_Full_Tax_Invoice_in_AutoCount_POS"},{"title":"How to redeem bonus point from POS system","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_redeem_bonus_point_from_POS_system"},{"title":"What is New AR Payment in POS System","url":"https://wiki.autocountsoft.com/wiki/Pos:_What_is_New_AR_Payment_in_POS_System"}]},{"title":"Sync","links":[{"title":"Fast Selection Menu sync issue","url":"https://wiki.autocountsoft.com/wiki/Pos:Fast_Selection_Menu_sync_issue"}]},{"title":"Maintenance","links":[{"title":"How to set for \"promoter selection\u201d to be auto-prompted after scanning an item","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_set_for_%22promoter_selection%E2%80%9D_to_be_auto-prompted_after_scanning_an_item"},{"title":"Does AutoCount POS 3.0/3.1 support E-wallet features","url":"https://wiki.autocountsoft.com/wiki/Pos:_Does_AutoCount_POS_3.0/3.1_support_E-wallet_features"},{"title":"How to Enable Scale Barcode in POS System","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_Enable_Scale_Barcode_in_POS_System"},{"title":"How to add cash computation","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_add_cash_computation"},{"title":"How to change sales type of POS","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_change_sales_type_of_POS"},{"title":"How to check AutoCount Pos Version","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_check_AutoCount_Pos_Version"},{"title":"How to create new member at POS front end","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_create_new_member_at_POS_front_end"},{"title":"How to load company logo in Pos system","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_load_company_logo_in_Pos_system"},{"title":"How to set different OR numbering format for POS Posting of each outlet","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_set_different_OR_numbering_format_for_POS_Posting_of_each_outlet"},{"title":"Pos - Clear All transaction","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_-_Clear_All_transaction"}]},{"title":"Others","links":[{"title":"How to reset configuration for POS Price Checker","url":"https://wiki.autocountsoft.com/wiki/Pos:_How_to_reset_configuration_for_POS_Price_Checker"},{"title":"Can I install different SQL versions for HQ and Outlet","url":"https://wiki.autocountsoft.com/wiki/Pos:_Can_I_install_different_SQL_versions_for_HQ_and_Outlet"}]}],"count":17}},{"kind":"troubleshoot","badgeClass":"troubleshoot","badge":"Troubleshoot","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_3.0_1.8:_FAQ_Troubleshoot","title":"POS 3.1 Troubleshoot","desc":"Issue categories for older POS deployments.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_3.0_1.8:_FAQ_Troubleshoot","groups":[{"title":"Sync Issue","links":[{"title":"Sync Failed to Setup Remoting","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_failed_to_setup_remoting"},{"title":"Sync error - Specified argument was out of the range of valid values","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_error_-_Specified_argument_was_out_of_the_range_of_valid_values"},{"title":"Sync Error - Cannot set column \u2018ItemGroup\u2019. The value violates the MaxLength limit of this column","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_Cannot_set_column_%E2%80%98ItemGroup%E2%80%99._The_value_violates_the_MaxLength_limit_of_this_column"},{"title":"Sync error - Internal Query Processor Error","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_error_-_Internal_Query_Processor_Error"},{"title":"Sync Error - Avast Antivirus program blocked sync process","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_Error_-_Avast_Antivirus_program_blocked_sync_process"},{"title":"Sync Error - Error found while sync Pos from Terminal to HQ","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_Error_-_Error_found_while_sync_Pos_from_Terminal_to_HQ"},{"title":"Sync error - Please make sure current Port No \u201819319\u2019 is not using by others program / other sync profile and Auto Sync is turn off","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_error_-_Please_make_sure_current_Port_No_%E2%80%9819319%E2%80%99_is_not_using_by_others_program_/_other_sync_profile_and_Auto_Sync_is_turn_off"},{"title":"Sync error - The value of column MemberNo in table PointTrans does not exist in its master file","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_error_-_The_value_of_column_MemberNo_in_table_PointTrans_does_not_exist_in_its_master_file"},{"title":"Sync Error - Failed to get valid DB Sync license. Please register your POS license","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_Error_-_Failed_to_get_valid_DB_Sync_license._Please_register_your_POS_license"},{"title":"POS Auto Sync Service can\u2019t be stopped - Stoppending","url":"https://wiki.autocountsoft.com/wiki/Pos:POS_Auto_Sync_Service_can%E2%80%99t_be_stopped_-_Stoppending"},{"title":"Sync Error - \u201cPlease make sure Apos Sync Client firewall port is open and service is started\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_Error_-_%E2%80%9CPlease_make_sure_Apos_Sync_Client_firewall_port_is_open_and_service_is_started%E2%80%9D"},{"title":"Sync Error - Missing source record for Member \u2018\u2019 \u201c. Last error key. Member. ChangeType: l, Key1:","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_Error_-_Missing_source_record_for_Member_%E2%80%98%E2%80%99_%E2%80%9C._Last_error_key._Member._ChangeType:_l,_Key1:"},{"title":"Sync process stuck at Get All Change Log","url":"https://wiki.autocountsoft.com/wiki/Pos:Sync_process_stuck_at_Get_All_Change_Log"},{"title":"Pos sync error - Method not found: \u2018Void BCE.AutoCount.MainEntry\u2026","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_sync_error_-_Method_not_found:_%E2%80%98Void_BCE.AutoCount.MainEntry%E2%80%A6"},{"title":"Sync error - The value of column Location in table does not exist in its master file","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_error_-_The_value_of_column_Location_in_table_does_not_exist_in_its_master_file"},{"title":"Sync error- Unknown Sql Exception\u2026SQL Server detected a logical consistency-based I/O error","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_error_-_Unknown_Sql_Exception%E2%80%A6SQL_Server_detected_a_logical_consistency-based_I/O_error"},{"title":"Sync Error \u2013 Missing Source record for member xxxxxx","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_%E2%80%93_Missing_Source_record_for_member_xxxxxx"},{"title":"Sync Error \u2013 Pos Sync stuck at 83%","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_%E2%80%93_Pos_Sync_stuck_at_83%25"},{"title":"Sync Error - LoadModuleLicense fails. (Result = RemoteUSBKeyNotFoundError)","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_LoadModuleLicense_fails._(Result_%3D_RemoteUSBKeyNotFoundError)"},{"title":"Sync Error - You should login to the system in order to access the function","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_You_should_login_to_the_system_in_order_to_access_the_function"},{"title":"Sync Error - The directory name is invalid","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_The_directory_name_is_invalid"},{"title":"Sync Error - Unknown Sql Exception Internal Query Processor Error","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_Unknown_Sql_Exception_Internal_Query_Processor_Error"},{"title":"Sync Error - Concurrency violation","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_Concurrency_violation"},{"title":"Sync Error - Unable to Open Autocount POS Sync","url":"https://wiki.autocountsoft.com/wiki/Pos:_Sync_Error_-_Unable_to_Open_Autocount_POS_Sync"}]},{"title":"Promotion/Price Plan","links":[{"title":"Unit Price not follow Member Price Plan","url":"https://wiki.autocountsoft.com/wiki/Pos:Unit_Price_not_follow_Member_Price_Plan"},{"title":"Unable to delete commission from commission maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_delete_commission_from_commission_maintenance"}]},{"title":"Pos Error","links":[{"title":"Pos installation error - The specified service already exists","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_installation_error_-_The_specified_service_already_exists"},{"title":"Pos Posting error - The value of column DEAccNo in table G/L does not exist in its master file","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_Posting_error_-_The_value_of_column_DEAccNo_in_table_G/L_does_not_exist_in_its_master_file"},{"title":"Pos posting error - No payment records found","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_posting_error_-_No_payment_records_found"},{"title":"Close Counter Error - \u201cThere is no data for PosCashSeries table. You must go to pos option to maintain PosCashSeries table.\u201d","url":"https://wiki.autocountsoft.com/wiki/Pos:_Close_Counter_Error_-_%E2%80%9CThere_is_no_data_for_PosCashSeries_table._You_must_go_to_pos_option_to_maintain_PosCashSeries_table.%E2%80%9D"},{"title":"Error message \u2018Please configure HQ Database information first\u2019 prompted when click on Remote HQ Function","url":"https://wiki.autocountsoft.com/wiki/Pos:_Error_message_%E2%80%98Please_configure_HQ_Database_information_first%E2%80%99_prompted_when_click_on_Remote_HQ_Function"},{"title":"Preview POS report error: Access denied! Please tick Access Backend at POS User Maintenance first","url":"https://wiki.autocountsoft.com/wiki/Pos:_Preview_POS_report_error:_Access_denied!_Please_tick_Access_Backend_at_POS_User_Maintenance_first"},{"title":"Item balance quantity for outlet is different from HQ","url":"https://wiki.autocountsoft.com/wiki/Pos:_Item_balance_quantity_for_outlet_is_different_from_HQ"},{"title":"POS Posting error - \u2018Cash Payment Method is not set\u2019","url":"https://wiki.autocountsoft.com/wiki/Pos:_POS_Posting_error_-_%E2%80%98Cash_Payment_Method_is_not_set%E2%80%99"},{"title":"Unable to dril down source document \u2013 Invalid Column Name","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_dril_down_source_document_%E2%80%93_Invalid_Column_Name"},{"title":"Hold Bill Document Number is invalid","url":"https://wiki.autocountsoft.com/wiki/Pos:_Hold_Bill_Document_Number_is_invalid"},{"title":"Pos Posting error - Duplicate Cash Book Entry No.","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_Posting_error_-_Duplicate_Cash_Book_Entry_No."},{"title":"Unable to print all items in a receipt","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_print_all_items_in_a_receipt"},{"title":"Login Error - Unknown SQL Exception (Number = 207, Message=Invalid column name \u2018ReturnQty\u2019. Invalid column name \u2018ReturnQty\u2019.)","url":"https://wiki.autocountsoft.com/wiki/Pos:_Login_Error_-_Unknown_SQL_Exception_(Number_%3D_207,_Message%3DInvalid_column_name_%E2%80%98ReturnQty%E2%80%99._Invalid_column_name_%E2%80%98ReturnQty%E2%80%99.)"},{"title":"Save new transaction error- There is a Discount applied to multiple type of taxtype","url":"https://wiki.autocountsoft.com/wiki/Pos:_Save_new_transaction_error-_There_is_a_Discount_applied_to_multiple_type_of_taxtype"},{"title":"Edit Pos transaction error - Line printer, cannot set discount on this line","url":"https://wiki.autocountsoft.com/wiki/Pos:_Edit_Pos_transaction_error_-_Line_printer,_cannot_set_discount_on_this_line"},{"title":"Edit Pos transaction error - The value of column LastModifiedUserID in table Pos does not exist in its master file","url":"https://wiki.autocountsoft.com/wiki/Pos_:_Edit_Pos_transaction_error_-_The_value_of_column_LastModifiedUserID_in_table_Pos_does_not_exist_in_its_master_file"},{"title":"Pos Transaction error \u2013 Nullable object must have a value","url":"https://wiki.autocountsoft.com/wiki/Pos:_Pos_Transaction_error_%E2%80%93_Nullable_object_must_have_a_value"}]},{"title":"Others","links":[{"title":"Pos couldn't print Xtra Report","url":"https://wiki.autocountsoft.com/wiki/Pos:Pos_couldn%27t_print_Xtra_Report"},{"title":"Unable to key in decimal places for bonus point payment","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_key_in_decimal_places_for_bonus_point_payment"},{"title":"Item numbering not appeared in POS receipt","url":"https://wiki.autocountsoft.com/wiki/Pos:Item_numbering_not_appeared_in_POS_receipt"},{"title":"Unable to find POS Posting tab under Location Maintenance","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_find_POS_Posting_tab_under_Location_Maintenance"},{"title":"Minimum Selling price issue","url":"https://wiki.autocountsoft.com/wiki/Pos:_Minimum_Selling_price_issue"},{"title":"Unable to find Open Backend button in POS front end login screen","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_find_Open_Backend_button_in_POS_front_end_login_screen"},{"title":"Member details not updated","url":"https://wiki.autocountsoft.com/wiki/Pos:_Member_details_not_updated"},{"title":"System always prompts to choose Sales Order or Cash Sale","url":"https://wiki.autocountsoft.com/wiki/Pos:_System_always_prompts_to_choose_Sales_Order_or_Cash_Sale"},{"title":"Item price book not sync to outlet","url":"https://wiki.autocountsoft.com/wiki/Pos:_Item_price_book_not_sync_to_outlet"},{"title":"Unable to find document type of POS in Price History Settings","url":"https://wiki.autocountsoft.com/wiki/Pos:_Unable_to_find_document_type_of_POS_in_Price_History_Settings"},{"title":"Set default Pos receipt","url":"https://wiki.autocountsoft.com/wiki/Pos:_Set_default_Pos_receipt"},{"title":"Optical POS outlet prompt error during check connectivity","url":"https://wiki.autocountsoft.com/wiki/Pos:_Optical_POS_outlet_prompt_error_during_check_connectivity"},{"title":"Reprint Last Receipt always prompt to choose report","url":"https://wiki.autocountsoft.com/wiki/Pos:_Reprint_Last_Receipt_always_prompt_to_choose_report"},{"title":"License can't update to POS Dongle","url":"https://wiki.autocountsoft.com/wiki/Pos:_License_can%27t_update_to_POS_Dongle"},{"title":"Stock Group account missing","url":"https://wiki.autocountsoft.com/wiki/Pos:_Stock_Group_account_missing"},{"title":"Fiscal Year issue when change item UOM","url":"https://wiki.autocountsoft.com/wiki/Pos:_Fiscal_Year_issue_when_change_item_UOM"}]}],"count":59}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_3.1:_Release_Note","title":"POS 3.1 Release Note","desc":"Updates for AutoCount POS 3.1.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_3.1:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0:_Release_Note","title":"POS 5.0 Release Note","desc":"Version notes for AutoCount POS 5.0.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.0:_Release_Note","title":"FnB 5.0 Release Note","desc":"Version notes for AutoCount FnB 5.0.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.0:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.1:_Release_Note","title":"POS 5.1 Release Note","desc":"Version notes for AutoCount POS 5.1.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.1:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.1:_Release_Note","title":"FnB 5.1 Release Note","desc":"Version notes for AutoCount FnB 5.1.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.1:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.2:_Release_Note","title":"POS 5.2 Release Note","desc":"Version notes for AutoCount POS 5.2.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.2:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.2:_Release_Note","title":"FnB 5.2 Release Note","desc":"Version notes for AutoCount FnB 5.2.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_5.2:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_eWaiter:_Release_Note","title":"FnB eWaiter Release Note","desc":"Updates for the eWaiter module.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_eWaiter:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_QR_Ordering:_Release_Note","title":"FnB QR Ordering Release Note","desc":"Updates for QR ordering features.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB_QR_Ordering:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.1:_Release_Note","title":"Optical POS 2.1 Release Note","desc":"Version notes for Optical POS 2.1.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.1:_Release_Note","groups":[],"count":0}},{"kind":"release","badgeClass":"release","badge":"Release","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.2:_Release_Note","title":"Optical POS 2.2 Release Note","desc":"Version notes for Optical POS 2.2.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Optical_Pos_2.2:_Release_Note","groups":[],"count":0}},{"kind":"reference","badgeClass":"reference","badge":"Reference","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB:_Help_File","title":"FnB Help File","desc":"Official help file category for AutoCount FnB.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_FnB:_Help_File","groups":[{"title":"Configuration","links":[{"title":"Configuration","url":"https://wiki.autocountsoft.com/wiki/Pos:Configuration"}]},{"title":"Getting Started","links":[{"title":"Getting Started","url":"https://wiki.autocountsoft.com/wiki/Pos:Getting_Started"}]},{"title":"Sales","links":[{"title":"View Order Listing","url":"https://wiki.autocountsoft.com/wiki/Pos:View_Order_Listing"},{"title":"Take Away","url":"https://wiki.autocountsoft.com/wiki/Pos:Take_Away"},{"title":"Reprint Last Receipt","url":"https://wiki.autocountsoft.com/wiki/Pos:Reprint_Last_Receipt"},{"title":"Reservation","url":"https://wiki.autocountsoft.com/wiki/Pos:Reservation"},{"title":"Change Table","url":"https://wiki.autocountsoft.com/wiki/Pos:Change_Table"},{"title":"Mark Served","url":"https://wiki.autocountsoft.com/wiki/Pos:Mark_Served"},{"title":"Share Table","url":"https://wiki.autocountsoft.com/wiki/Pos:Share_Table"},{"title":"Join Table or Clear Join Table","url":"https://wiki.autocountsoft.com/wiki/Pos:Join_Table_or_Clear_Join_Table"},{"title":"FnB POS Main Screen Introduce","url":"https://wiki.autocountsoft.com/wiki/Pos:FnB_POS_Main_Screen_Introduce"},{"title":"Create Normal FnB Sales Transaction","url":"https://wiki.autocountsoft.com/wiki/Pos:Create_Normal_FnB_Sales_Transaction"}]},{"title":"More Function","links":[{"title":"Find Transaction","url":"https://wiki.autocountsoft.com/wiki/More_Function:Find_Transaction"},{"title":"Reservation - Hyperlink","url":"https://wiki.autocountsoft.com/wiki/More_Function:Reservation_-_Hyperlink"},{"title":"Staff Attendance","url":"https://wiki.autocountsoft.com/wiki/More_Function:Staff_Attendance"},{"title":"Check Stock Level","url":"https://wiki.autocountsoft.com/wiki/More_Function:Check_Stock_Level"},{"title":"Reports - Hyperlink","url":"https://wiki.autocountsoft.com/wiki/More_Function:Reports_-_Hyperlink"},{"title":"Remote HQ","url":"https://wiki.autocountsoft.com/wiki/More_Function:Remote_HQ"},{"title":"View Price History","url":"https://wiki.autocountsoft.com/wiki/More_Function:View_Price_History"},{"title":"Goods In Transit","url":"https://wiki.autocountsoft.com/wiki/More_Function:Goods_In_Transit"},{"title":"Change Skin","url":"https://wiki.autocountsoft.com/wiki/More_Function:Change_Skin"},{"title":"Configuration Setting","url":"https://wiki.autocountsoft.com/wiki/More_Function:Configuration_Setting"},{"title":"Function Bar","url":"https://wiki.autocountsoft.com/wiki/More_Function:Function_Bar"},{"title":"Synchronize","url":"https://wiki.autocountsoft.com/wiki/More_Function:Synchronize"},{"title":"Table Design","url":"https://wiki.autocountsoft.com/wiki/More_Function:Table_Design"},{"title":"User Screen Lock","url":"https://wiki.autocountsoft.com/wiki/More_Function:User_Screen_Lock"},{"title":"Change Menu","url":"https://wiki.autocountsoft.com/wiki/More_Function:Change_Menu"},{"title":"Out Of Stock","url":"https://wiki.autocountsoft.com/wiki/More_Function:Out_Of_Stock"},{"title":"Recall Bill - Hyperlink","url":"https://wiki.autocountsoft.com/wiki/More_Function:Recall_Bill_-_Hyperlink"},{"title":"Combine Bill","url":"https://wiki.autocountsoft.com/wiki/More_Function:Combine_Bill"},{"title":"Split Bill","url":"https://wiki.autocountsoft.com/wiki/More_Function:Split_Bill"},{"title":"AR Payment","url":"https://wiki.autocountsoft.com/wiki/More_Function:AR_Payment"},{"title":"Service Charge","url":"https://wiki.autocountsoft.com/wiki/More_Function:Service_Charge"},{"title":"Service Tax Code","url":"https://wiki.autocountsoft.com/wiki/More_Function:Service_Tax_Code"},{"title":"Reprint Last Receipt","url":"https://wiki.autocountsoft.com/wiki/More_Function:Reprint_Last_Receipt"},{"title":"Change Inclusive","url":"https://wiki.autocountsoft.com/wiki/More_Function:Change_Inclusive"},{"title":"Cash In or Cash Out","url":"https://wiki.autocountsoft.com/wiki/More_Function:Cash_In_or_Cash_Out"},{"title":"Close Counter","url":"https://wiki.autocountsoft.com/wiki/More_Function:Close_Counter"},{"title":"Open Counter","url":"https://wiki.autocountsoft.com/wiki/More_Function:Open_Counter"},{"title":"Open Cash Drawer - Hyperlink","url":"https://wiki.autocountsoft.com/wiki/More_Function:Open_Cash_Drawer_-_Hyperlink"},{"title":"Set Remarks","url":"https://wiki.autocountsoft.com/wiki/More_Function:Set_Remarks"}]},{"title":"Line Editing","links":[{"title":"Set Price","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_Price"},{"title":"Set Qty","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_Qty"},{"title":"Row Discount","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Row_Discount"},{"title":"Set Description","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_Description"},{"title":"Set UOM","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_UOM"},{"title":"Set Row Remarks","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_Row_Remarks"},{"title":"Set Tax Code","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_Tax_Code"},{"title":"Delete Row","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Delete_Row"},{"title":"Service Type","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Service_Type"},{"title":"Set Promoter","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_Promoter"},{"title":"Set FOC","url":"https://wiki.autocountsoft.com/wiki/Line_Editing:Set_FOC"}]}],"count":52}},{"kind":"reference","badgeClass":"reference","badge":"Reference","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0:_Help_File","title":"POS 5.0 Help File","desc":"Official help file category for AutoCount POS 5.0.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_Pos_5.0:_Help_File","groups":[{"title":"AutoCounting POS 5.0","links":[{"title":"POS BackEnd","url":"https://wiki.autocountsoft.com/wiki/POS_BackEnd"},{"title":"POS FrontEnd","url":"https://wiki.autocountsoft.com/wiki/POS_FrontEnd"},{"title":"POS Sync Monitor","url":"https://wiki.autocountsoft.com/wiki/POS_Sync_Monitor"},{"title":"Appearance","url":"https://wiki.autocountsoft.com/wiki/Appearance"},{"title":"Document Control","url":"https://wiki.autocountsoft.com/wiki/Document_Control"},{"title":"Document Control 2","url":"https://wiki.autocountsoft.com/wiki/Document_Control_2"},{"title":"Document Control 3","url":"https://wiki.autocountsoft.com/wiki/Document_Control_3"},{"title":"Receipt (Character Based)","url":"https://wiki.autocountsoft.com/wiki/Receipt_(Character_Based)"},{"title":"Promotion Maintenance","url":"https://wiki.autocountsoft.com/wiki/Promotion_Maintenance"},{"title":"Validity","url":"https://wiki.autocountsoft.com/wiki/Validity"},{"title":"Item Price","url":"https://wiki.autocountsoft.com/wiki/Item_Price"},{"title":"Item Group Price","url":"https://wiki.autocountsoft.com/wiki/Item_Group_Price"},{"title":"Item Type Price","url":"https://wiki.autocountsoft.com/wiki/Item_Type_Price"},{"title":"Item Package Price","url":"https://wiki.autocountsoft.com/wiki/Item_Package_Price"},{"title":"Purchase with Purchase","url":"https://wiki.autocountsoft.com/wiki/Purchase_with_Purchase"},{"title":"Mix and Match","url":"https://wiki.autocountsoft.com/wiki/Mix_and_Match"},{"title":"Auto Prompt Maintenance","url":"https://wiki.autocountsoft.com/wiki/Auto_Prompt_Maintenance"},{"title":"Credit Card Maintenance","url":"https://wiki.autocountsoft.com/wiki/Credit_Card_Maintenance"},{"title":"Debit Card Maintenance","url":"https://wiki.autocountsoft.com/wiki/Debit_Card_Maintenance"},{"title":"Fast Selection Menu Maintenance","url":"https://wiki.autocountsoft.com/wiki/Fast_Selection_Menu_Maintenance"},{"title":"Member Price Maintenance","url":"https://wiki.autocountsoft.com/wiki/Member_Price_Maintenance"},{"title":"Out Of Stock Maintenance","url":"https://wiki.autocountsoft.com/wiki/Out_Of_Stock_Maintenance"},{"title":"Price Plan Maintenance","url":"https://wiki.autocountsoft.com/wiki/Price_Plan_Maintenance"},{"title":"Terminal Maintenance","url":"https://wiki.autocountsoft.com/wiki/Terminal_Maintenance"},{"title":"POS User Group Maintenance","url":"https://wiki.autocountsoft.com/wiki/POS_User_Group_Maintenance"},{"title":"POS User Maintenance","url":"https://wiki.autocountsoft.com/wiki/POS_User_Maintenance"},{"title":"Voucher Maintenance","url":"https://wiki.autocountsoft.com/wiki/Voucher_Maintenance"},{"title":"Promoter Maintenance","url":"https://wiki.autocountsoft.com/wiki/Promoter_Maintenance"},{"title":"Promoter Commission Maintenanance","url":"https://wiki.autocountsoft.com/wiki/Promoter_Commission_Maintenanance"},{"title":"Promoter Commission Analysis Report","url":"https://wiki.autocountsoft.com/wiki/Promoter_Commission_Analysis_Report"},{"title":"Promoter Sales Analysis Report","url":"https://wiki.autocountsoft.com/wiki/Promoter_Sales_Analysis_Report"},{"title":"POS Posting","url":"https://wiki.autocountsoft.com/wiki/POS_Posting"},{"title":"POS Setting","url":"https://wiki.autocountsoft.com/wiki/POS_Setting"},{"title":"POS Transaction Viewer","url":"https://wiki.autocountsoft.com/wiki/POS_Transaction_Viewer"},{"title":"Purge POS Transaction","url":"https://wiki.autocountsoft.com/wiki/Purge_POS_Transaction"},{"title":"Getting Started","url":"https://wiki.autocountsoft.com/wiki/Getting_Started"},{"title":"Change All Service Type","url":"https://wiki.autocountsoft.com/wiki/Change_All_Service_Type"},{"title":"Change Multi Pricing","url":"https://wiki.autocountsoft.com/wiki/Change_Multi_Pricing"},{"title":"Change Service Charge","url":"https://wiki.autocountsoft.com/wiki/Change_Service_Charge"},{"title":"Change Service Tax Code","url":"https://wiki.autocountsoft.com/wiki/Change_Service_Tax_Code"},{"title":"Clear Transaction","url":"https://wiki.autocountsoft.com/wiki/Clear_Transaction"},{"title":"Set Remark","url":"https://wiki.autocountsoft.com/wiki/Set_Remark"},{"title":"Total Discount","url":"https://wiki.autocountsoft.com/wiki/Total_Discount"},{"title":"Change Inclusive","url":"https://wiki.autocountsoft.com/wiki/Change_Inclusive"},{"title":"Find Bill","url":"https://wiki.autocountsoft.com/wiki/Find_Bill"},{"title":"Hold Bill","url":"https://wiki.autocountsoft.com/wiki/Hold_Bill"},{"title":"Recall Bill","url":"https://wiki.autocountsoft.com/wiki/Recall_Bill"},{"title":"Reprint Last Bill","url":"https://wiki.autocountsoft.com/wiki/Reprint_Last_Bill"},{"title":"Cash In Out","url":"https://wiki.autocountsoft.com/wiki/Cash_In_Out"},{"title":"Close Counter","url":"https://wiki.autocountsoft.com/wiki/Close_Counter"},{"title":"Open Cash Drawer","url":"https://wiki.autocountsoft.com/wiki/Open_Cash_Drawer"},{"title":"Open Counter","url":"https://wiki.autocountsoft.com/wiki/Open_Counter"},{"title":"Staff Attendance","url":"https://wiki.autocountsoft.com/wiki/Staff_Attendance"},{"title":"User Screen Lock","url":"https://wiki.autocountsoft.com/wiki/User_Screen_Lock"},{"title":"AR Payment","url":"https://wiki.autocountsoft.com/wiki/AR_Payment"},{"title":"Check Stock Level","url":"https://wiki.autocountsoft.com/wiki/Check_Stock_Level"},{"title":"Goods In Transit","url":"https://wiki.autocountsoft.com/wiki/Goods_In_Transit"},{"title":"View Price History","url":"https://wiki.autocountsoft.com/wiki/View_Price_History"},{"title":"Cash Receipt","url":"https://wiki.autocountsoft.com/wiki/Cash_Receipt"},{"title":"Cash Recording","url":"https://wiki.autocountsoft.com/wiki/Cash_Recording"},{"title":"Cheque","url":"https://wiki.autocountsoft.com/wiki/Cheque"},{"title":"Close Counter Report","url":"https://wiki.autocountsoft.com/wiki/Close_Counter_Report"},{"title":"Credit Card","url":"https://wiki.autocountsoft.com/wiki/Credit_Card"},{"title":"Debit Card","url":"https://wiki.autocountsoft.com/wiki/Debit_Card"},{"title":"Voucher","url":"https://wiki.autocountsoft.com/wiki/Voucher"},{"title":"Branch Stock Balance Report","url":"https://wiki.autocountsoft.com/wiki/Branch_Stock_Balance_Report"},{"title":"Multi Dimensional POS Report","url":"https://wiki.autocountsoft.com/wiki/Multi_Dimensional_POS_Report"},{"title":"Payment Analysis","url":"https://wiki.autocountsoft.com/wiki/Payment_Analysis"},{"title":"POS Profit Margin","url":"https://wiki.autocountsoft.com/wiki/POS_Profit_Margin"},{"title":"Promoter Commission Analysis","url":"https://wiki.autocountsoft.com/wiki/Promoter_Commission_Analysis"},{"title":"Time Analysis","url":"https://wiki.autocountsoft.com/wiki/Time_Analysis"},{"title":"POS Audit Trail","url":"https://wiki.autocountsoft.com/wiki/POS_Audit_Trail"},{"title":"POS Transactions Viewer","url":"https://wiki.autocountsoft.com/wiki/POS_Transactions_Viewer"},{"title":"Promoter Sales Analysis","url":"https://wiki.autocountsoft.com/wiki/Promoter_Sales_Analysis"},{"title":"Staff Attendance Report","url":"https://wiki.autocountsoft.com/wiki/Staff_Attendance_Report"},{"title":"Daily Sales","url":"https://wiki.autocountsoft.com/wiki/Daily_Sales"},{"title":"FOC Item Listing Report","url":"https://wiki.autocountsoft.com/wiki/FOC_Item_Listing_Report"},{"title":"Open Item Listing","url":"https://wiki.autocountsoft.com/wiki/Open_Item_Listing"},{"title":"POS Listing by Tax Code","url":"https://wiki.autocountsoft.com/wiki/POS_Listing_by_Tax_Code"},{"title":"POS Outstanding Sales Order","url":"https://wiki.autocountsoft.com/wiki/POS_Outstanding_Sales_Order"},{"title":"POS Sales","url":"https://wiki.autocountsoft.com/wiki/POS_Sales"},{"title":"Promotion Listing Report","url":"https://wiki.autocountsoft.com/wiki/Promotion_Listing_Report"},{"title":"Top Bottom POS Sales Ranking","url":"https://wiki.autocountsoft.com/wiki/Top_Bottom_POS_Sales_Ranking"},{"title":"Trade In and Refund","url":"https://wiki.autocountsoft.com/wiki/Trade_In_and_Refund"},{"title":"Voucher Transaction","url":"https://wiki.autocountsoft.com/wiki/Voucher_Transaction"},{"title":"POS Change Tax Code","url":"https://wiki.autocountsoft.com/wiki/POS_Change_Tax_Code"},{"title":"Set Batch Number","url":"https://wiki.autocountsoft.com/wiki/Set_Batch_Number"},{"title":"Set Description","url":"https://wiki.autocountsoft.com/wiki/Set_Description"},{"title":"Set Extra Point","url":"https://wiki.autocountsoft.com/wiki/Set_Extra_Point"},{"title":"Set FOC","url":"https://wiki.autocountsoft.com/wiki/Set_FOC"},{"title":"Set Promoter","url":"https://wiki.autocountsoft.com/wiki/Set_Promoter"},{"title":"Set Row Remark","url":"https://wiki.autocountsoft.com/wiki/Set_Row_Remark"},{"title":"Set Serial Number","url":"https://wiki.autocountsoft.com/wiki/Set_Serial_Number"},{"title":"Overview of More Function","url":"https://wiki.autocountsoft.com/wiki/Overview_of_More_Function"},{"title":"Change Menu","url":"https://wiki.autocountsoft.com/wiki/Change_Menu"},{"title":"Change Skin","url":"https://wiki.autocountsoft.com/wiki/Change_Skin"},{"title":"Close","url":"https://wiki.autocountsoft.com/wiki/Close"},{"title":"Customize Button","url":"https://wiki.autocountsoft.com/wiki/Customize_Button"},{"title":"Full Synchronization","url":"https://wiki.autocountsoft.com/wiki/Full_Synchronization"},{"title":"Device Setting","url":"https://wiki.autocountsoft.com/wiki/Device_Setting"},{"title":"Device Setting 2","url":"https://wiki.autocountsoft.com/wiki/Device_Setting_2"},{"title":"General","url":"https://wiki.autocountsoft.com/wiki/General"},{"title":"Miscellanous","url":"https://wiki.autocountsoft.com/wiki/Miscellanous"},{"title":"Receipt","url":"https://wiki.autocountsoft.com/wiki/Receipt"},{"title":"Transaction Main Screen","url":"https://wiki.autocountsoft.com/wiki/Transaction_Main_Screen"}]}],"count":105}},{"kind":"reference","badgeClass":"reference","badge":"Reference","url":"https://wiki.autocountsoft.com/wiki/Category:Others:_Mall_Integration_Lists_v2","title":"Mall Integration Lists","desc":"Reference lists for POS mall integration.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:Others:_Mall_Integration_Lists_v2","groups":[],"count":0}},{"kind":"reference","badgeClass":"reference","badge":"Reference","url":"https://wiki.autocountsoft.com/wiki/Category:Others:_E-Wallet","title":"POS E-Wallet","desc":"E-wallet related resources for POS users.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:Others:_E-Wallet","groups":[],"count":0}},{"kind":"reference","badgeClass":"reference","badge":"Reference","url":"https://wiki.autocountsoft.com/wiki/Category:Others:_Hardware_Compatibility_Lists","title":"Hardware Compatibility Lists","desc":"Hardware compatibility references for POS setups.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:Others:_Hardware_Compatibility_Lists","groups":[],"count":0}},{"kind":"reference","badgeClass":"reference","badge":"API","url":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_POS","title":"AutoCount POS API","desc":"API category for POS technical resources.","data":{"source":"https://wiki.autocountsoft.com/wiki/Category:AutoCount_POS","groups":[],"count":0}}]
+  </script>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+    const emptyState = document.getElementById("emptyState");
+    const drilldownPanel = document.getElementById("activeDrilldownPanel");
+    const drilldownData = JSON.parse(document.getElementById("drilldownData").textContent);
+    let activeFilter = "all";
+    let activeCard = null;
+    let activeGroupByCard = {};
+
+    cards.forEach((card) => {
+      const item = drilldownData[Number(card.dataset.drilldownIndex)];
+      if (!item.data.count) {
+        card.classList.add("source-only");
+        card.setAttribute("aria-disabled", "true");
+        card.querySelector(".arrow").textContent = "i";
+        card.querySelector(".card-desc").textContent = "No article links published yet.";
+      }
+    });
+
+    function closeDrilldown() {
+      drilldownPanel.classList.remove("open");
+      drilldownPanel.innerHTML = "";
+      if (activeCard) {
+        activeCard.setAttribute("aria-expanded", "false");
+        const item = drilldownData[Number(activeCard.dataset.drilldownIndex)];
+        activeCard.querySelector(".arrow").textContent = item.data.count ? "+" : "i";
+      }
+      activeCard = null;
+    }
+
+    function flattenArticleResults(query) {
+      const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+      const results = [];
+
+      drilldownData.forEach((item) => {
+        (item.data.groups || []).forEach((group) => {
+          (group.links || []).forEach((link) => {
+            const haystack = `${link.title} ${group.title} ${item.title} ${item.badge}`.toLowerCase();
+            if (terms.every((term) => haystack.includes(term))) {
+              results.push({
+                title: link.title,
+                url: link.url,
+                topic: item.title,
+                group: group.title,
+                badge: item.badge,
+              });
+            }
+          });
+        });
+      });
+
+      return results;
+    }
+
+    function renderSearchResults(query) {
+      if (!query) {
+        searchResults.classList.remove("open");
+        searchResults.innerHTML = "";
+        return 0;
+      }
+
+      const results = flattenArticleResults(query);
+      const shown = results.slice(0, 80);
+      const resultMarkup = shown.length
+        ? `<ul class="result-list">
+            ${shown.map((result) => `
+              <li>
+                <a href="${result.url}" target="_blank" rel="noreferrer">
+                  <span class="result-title">${result.title}</span>
+                  <span class="result-meta">${result.topic} / ${result.group} / ${result.badge}</span>
+                </a>
+              </li>
+            `).join("")}
+          </ul>`
+        : `<div class="result-empty">No article links found for "${query}". Try a shorter keyword.</div>`;
+
+      searchResults.innerHTML = `
+        <div class="search-results-head">
+          <div>
+            <strong>${results.length} related article${results.length === 1 ? "" : "s"}</strong>
+            <span>${shown.length < results.length ? `Showing first ${shown.length}` : `Keyword: "${query}"`}</span>
+          </div>
+          <button class="clear-search" type="button">Clear</button>
+        </div>
+        ${resultMarkup}
+      `;
+      searchResults.classList.add("open");
+      searchResults.querySelector(".clear-search").addEventListener("click", () => {
+        searchInput.value = "";
+        applyFilters();
+        searchInput.focus();
+      });
+
+      return results.length;
+    }
+
+    function renderDrilldown(card, groupIndex = 0) {
+      const cardIndex = Number(card.dataset.drilldownIndex);
+      const item = drilldownData[cardIndex];
+      const groups = item.data.groups || [];
+      const totalLinks = item.data.count || 0;
+      const safeGroupIndex = groups[groupIndex] ? groupIndex : 0;
+      const group = groups[safeGroupIndex];
+      activeGroupByCard[cardIndex] = safeGroupIndex;
+
+      const tabs = groups.length
+        ? groups.map((section, index) => `
+            <button class="drilldown-tab ${index === safeGroupIndex ? "active" : ""}" type="button" data-group="${index}" role="tab" aria-selected="${index === safeGroupIndex}">
+              <span>${section.title}</span>
+              <span>${section.links.length}</span>
+            </button>
+          `).join("")
+        : `<button class="drilldown-tab active" type="button" role="tab" aria-selected="true"><span>No article list</span><span>0</span></button>`;
+
+      const list = group
+        ? `
+          <h4>${group.title}</h4>
+          <ol class="article-list">
+            ${group.links.map((link) => `<li><a href="${link.url}" target="_blank" rel="noreferrer">${link.title}</a></li>`).join("")}
+          </ol>
+        `
+        : "";
+
+      drilldownPanel.innerHTML = `
+        <div class="drilldown-head">
+          <div>
+            <h3>${item.title}</h3>
+            <p>${totalLinks ? `${totalLinks} article links grouped from the official wiki category.` : "No article members are published in this wiki category yet."}</p>
+          </div>
+          <button class="close-drilldown" type="button" aria-label="Close drilldown">&times;</button>
+        </div>
+        <div class="drilldown-tabs" role="tablist" aria-label="FAQ sections">${tabs}</div>
+        <div class="drilldown-list" role="tabpanel">${list}</div>
+      `;
+
+      drilldownPanel.querySelector(".close-drilldown").addEventListener("click", closeDrilldown);
+      drilldownPanel.querySelectorAll(".drilldown-tab[data-group]").forEach((tab) => {
+        tab.addEventListener("click", () => renderDrilldown(card, Number(tab.dataset.group)));
+      });
+    }
+
+    function openDrilldown(card) {
+      const item = drilldownData[Number(card.dataset.drilldownIndex)];
+      if (!item.data.count) {
+        closeDrilldown();
+        return;
+      }
+
+      if (activeCard && activeCard !== card) {
+        activeCard.setAttribute("aria-expanded", "false");
+        const activeItem = drilldownData[Number(activeCard.dataset.drilldownIndex)];
+        activeCard.querySelector(".arrow").textContent = activeItem.data.count ? "+" : "i";
+      }
+
+      activeCard = card;
+      const cardIndex = Number(card.dataset.drilldownIndex);
+      renderDrilldown(card, activeGroupByCard[cardIndex] || 0);
+      card.after(drilldownPanel);
+      drilldownPanel.classList.add("open");
+      card.setAttribute("aria-expanded", "true");
+      card.querySelector(".arrow").textContent = "-";
+      drilldownPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function toggleDrilldown(card) {
+      if (activeCard === card && drilldownPanel.classList.contains("open")) {
+        closeDrilldown();
+      } else {
+        openDrilldown(card);
+      }
+    }
+
+    function applyFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+      const resultCount = renderSearchResults(query);
+
+      cards.forEach((card) => {
+        const matchesFilter = activeFilter === "all" || card.dataset.kind === activeFilter;
+        const dataItem = drilldownData[Number(card.dataset.drilldownIndex)];
+        const drilldownText = dataItem ? JSON.stringify(dataItem.data.groups).toLowerCase() : "";
+        const matchesSearch = !query || card.textContent.toLowerCase().includes(query) || drilldownText.includes(query);
+        const show = matchesFilter && matchesSearch;
+        card.style.display = show ? "" : "none";
+        if (show) visible += 1;
+      });
+
+      if (query || (activeCard && activeCard.style.display === "none")) {
+        closeDrilldown();
+      }
+
+      document.querySelectorAll(".faq-section").forEach((section) => {
+        const hasVisibleCard = Array.from(section.querySelectorAll(".card")).some((card) => card.style.display !== "none");
+        section.style.display = hasVisibleCard ? "" : "none";
+      });
+
+      emptyState.style.display = visible || resultCount ? "none" : "block";
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        activeFilter = chip.dataset.filter;
+        chips.forEach((item) => item.classList.toggle("active", item === chip));
+        applyFilters();
+      });
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => toggleDrilldown(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleDrilldown(card);
+        }
+      });
+    });
+
+    searchInput.addEventListener("input", applyFilters);
+  </script>
+
+
+
+
+
+
+
+
+
+</body></html>
